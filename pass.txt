@@ -1,0 +1,4 @@
+db : 
+username : u1039790_yaruthab
+pass : f4c3b00k.
+hostname : u1039790_yaruthab

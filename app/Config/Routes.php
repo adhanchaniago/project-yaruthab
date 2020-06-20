@@ -35,6 +35,8 @@ $routes->get('/', 'Pages');
 $routes->get('/rt', 'Pages::rt');
 $routes->get('/pesantren', 'Pages::pesantren');
 $routes->get('/portofolio', 'Pages::portofolio');
+$routes->get('/doc', 'Pages::doc');
+$routes->get('/admin', 'Auth::index');
 
 /**
  * --------------------------------------------------------------------

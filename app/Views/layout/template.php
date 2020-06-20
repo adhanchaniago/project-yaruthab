@@ -170,6 +170,32 @@
     <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
     <div id="preloader"></div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="MyModal" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header d-flex">
+                    <img src="<?= base_url('assets') ?>/img/logo1.png" alt="logo">
+                    <img src="<?= base_url('assets') ?>/img/logo1.png" alt="logo">
+                    <img src="<?= base_url('assets') ?>/img/logo1.png" alt="logo">
+                    <img src="<?= base_url('assets') ?>/img/logo1.png" alt="logo">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <h5>Website dalam tahap pengembangan</h5>
+                    Sebagian data yang tertera dalam laman web masih berupa data dummies
+                </div>
+                <div class="modal-footer">
+                    <p class="text-center">
+                        <a href="https://yaruthab.org">www.yaruthab.org</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Vendor JS Files -->
     <script src="<?= base_url('assets') ?>/vendor/jquery/jquery.min.js"></script>
     <script src="<?= base_url('assets') ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -183,10 +209,12 @@
     <script src="<?= base_url('assets') ?>/vendor/aos/aos.js"></script>
     <script src="<?= base_url('assets') ?>/vendor/datatables/js/jquery.dataTables.js"></script>
     <script src="<?= base_url('assets') ?>/vendor/datatables/js/dataTables.bootstrap4.js"></script>
-
-    <!-- Template Main JS File -->
+    <script src="<?= base_url('assets') ?>/js/popper.js"></script>
     <script src="<?= base_url('assets') ?>/js/main.js"></script>
-
+    <!-- Template Main JS File -->
+    <script>
+        $('#MyModal').modal('show');
+    </script>
     <script>
         $(function() {
             $("#example1").DataTable();

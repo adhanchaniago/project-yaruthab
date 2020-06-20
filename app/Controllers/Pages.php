@@ -36,6 +36,14 @@ class Pages extends BaseController
         return view('frontend/portfolio', $data);
     }
 
+    public function doc()
+    {
+        $data = [
+            'title' => 'Dokumen | Yaruthab'
+        ];
+        return view('frontend/doc', $data);
+    }
+
     //--------------------------------------------------------------------
 
 }

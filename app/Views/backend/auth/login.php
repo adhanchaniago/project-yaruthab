@@ -1,6 +1,10 @@
 <?= $this->extend('layout/authTemplate.php'); ?>
 
 <?= $this->section('form'); ?>
+
+<div class="flash-data" data-flashdata="<?= session()->getFlashdata('meesage'); ?>"></div>
+<div class="flash-data-success" data-flashdata="<?= session()->getFlashdata('registrasi'); ?>"></div>
+
 <!-- Outer Row -->
 <div class="row justify-content-center">
     <div class="col-lg-7">
@@ -13,7 +17,7 @@
                         <div class="p-5">
                             <div class="text-center">
                                 <img src="<?= base_url('assets') ?>/img/logo1.png" alt="Yaruthab Logo" class="brand-image rounded-circle mb-4 border-danger" width="85" style="opacity: .8">
-                                <h1><?= session()->getFlashdata('meesage'); ?></h1>
+                                <!-- <h1></h1> -->
                             </div>
                             <form class="user" method='post' action="<?= base_url('Auth'); ?>">
                                 <div class="form-group">
@@ -43,7 +47,7 @@
                                 <hr>
                             </form>
                             <div class="text-center">
-                                <a class="small" href="<?= base_url() ?>/auth/register">Daftar akun baru!</a>
+                                <a class="small" href="<?= base_url('/register') ?>">Daftar akun baru!</a>
                             </div>
                         </div>
                     </div>

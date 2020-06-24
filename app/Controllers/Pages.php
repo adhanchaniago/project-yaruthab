@@ -44,6 +44,25 @@ class Pages extends BaseController
         return view('frontend/doc', $data);
     }
 
+    public function dashboard()
+    {
+        $data = [
+            'title' => 'Dashboard'
+        ];
+
+        return view('backend/dashboard', $data);
+    }
+
+
+    public function pengurus()
+    {
+        $data = [
+            'title' => 'Pengurus'
+        ];
+
+        return view('layout/admintemplate', $data);
+    }
+
     //--------------------------------------------------------------------
 
 }

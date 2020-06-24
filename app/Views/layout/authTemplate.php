@@ -28,7 +28,11 @@
     </div>
 
     <!-- Custom scripts for all pages-->
+    <!-- jQuery -->
+    <script src="<?= base_url('vendor') ?>/adminlte/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url('assets'); ?>/js/sb-admin-2.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/js/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/js/myscript.js"></script>
 
 </body>
 

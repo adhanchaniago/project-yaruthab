@@ -85,7 +85,7 @@
                     </form>
                     <hr>
                     <div class="text-center">
-                        <a class="small" href="<?= base_url('auth') ?>">Sudah punya akun ? Silahkan login!</a>
+                        <a class="small" href="<?= base_url('/login') ?>">Sudah punya akun ? Silahkan login!</a>
                     </div>
                 </div>
             </div>

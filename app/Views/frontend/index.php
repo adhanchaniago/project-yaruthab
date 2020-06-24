@@ -216,7 +216,7 @@
                             </p>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="<?= base_url('assets') ?>/img/portfolio/portfolio-2.jpg" alt="" class="img-fluid">
+                            <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-2.jpg" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -233,7 +233,7 @@
 
                 <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="<?= base_url('assets') ?>/img/about-boxes-1.jpg" class="card-img-top" alt="...">
+                        <img src="<?= base_url('assets') ?>/img/visi.png" class="card-img-top" alt="...">
                         <div class="card-icon">
                             <i class="ri-filter-3-line"></i>
                         </div>
@@ -248,7 +248,7 @@
 
                 <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="card">
-                        <img src="<?= base_url('assets') ?>/img/about-boxes-2.jpg" class="card-img-top" alt="...">
+                        <img src="<?= base_url('assets') ?>/img/misi.png" class="card-img-top" alt="...">
                         <div class="card-icon">
                             <i class="ri-check-double-fill"></i>
                         </div>
@@ -426,81 +426,81 @@
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="<?= base_url('assets') ?>/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>App 1</h4>
                         <p>App</p>
-                        <a href="<?= base_url('assets') ?>/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="<?= base_url('assets') ?>/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>Web 3</h4>
                         <p>Web</p>
-                        <a href="<?= base_url('assets') ?>/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="<?= base_url('assets') ?>/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>App 2</h4>
                         <p>App</p>
-                        <a href="<?= base_url('assets') ?>/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="<?= base_url('assets') ?>/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>Card 2</h4>
                         <p>Card</p>
-                        <a href="<?= base_url('assets') ?>/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="<?= base_url('assets') ?>/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>Web 2</h4>
                         <p>Web</p>
-                        <a href="<?= base_url('assets') ?>/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="<?= base_url('assets') ?>/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>App 3</h4>
                         <p>App</p>
-                        <a href="<?= base_url('assets') ?>/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="<?= base_url('assets') ?>/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>Card 1</h4>
                         <p>Card</p>
-                        <a href="<?= base_url('assets') ?>/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="<?= base_url('assets') ?>/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
                     <div class="portfolio-info">
                         <h4>Card 3</h4>
                         <p>Card</p>
-                        <a href="<?= base_url('assets') ?>/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
                         <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                     </div>
                 </div>
@@ -523,7 +523,7 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="member" data-aos="fade-up" data-aos-delay="100">
-                        <div class="pic"><img src="<?= base_url('assets') ?>/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+                        <div class="pic"><img src="<?= base_url('assets') ?>/img/team/profile.png" class="img-fluid" alt=""></div>
                         <div class="member-info">
                             <h4>Walter White</h4>
                             <span>Chief Executive Officer</span>

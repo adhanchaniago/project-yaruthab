@@ -60,25 +60,24 @@ class Auth extends BaseController
                 if ($user['is_active'] == 1) { // JIKA BENAR CEK APAKAH USER AKTIF
                     $data = [ // JIKA AKTIF, BUAT SESSION DARI USER
                         'id' => $user['id'],
+                        'nama' => $user['nama'],
                         'username' => $user['username'],
                         'role_id' => $user['role_id']
                     ];
                     $this->session->set($data);
-                    // LANJUTKAN KE HALAMAN ADMIN DASHBOARD
-
-
+                    return redirect()->to('/admin');
                 } else { // JIKA TIDAK AKTIF TAMPILKAN PESAN KEMBALIKAN KE HALAMAN LOGIN
                     # ISI PESAN
                     $this->session->setFlashdata('meesage', 'User belum diaktifasi, silahkan hubungi admin untuk aktifasi akun !');
-                    return redirect()->to('/admin');
+                    return redirect()->to('/login');
                 }
             } else { // JIKA PASSWORD SALAH TAMPILKAN PESAN ERROR, KEMBALIKAN KE HALAMAN LOGIN
                 $this->session->setFlashdata('meesage', 'Password salah !');
-                return redirect()->to('/admin');
+                return redirect()->to('/login');
             }
         } else {
             $this->session->setFlashdata('meesage', 'Username tidak ditemukan !');
-            return redirect()->to('/admin');
+            return redirect()->to('/login');
         }
     }
 
@@ -148,8 +147,8 @@ class Auth extends BaseController
                 # insert data to database
                 $this->auth->addUser($dataUser);
                 # buat flashdata dan direct ke halaman login
-                $this->session->setFlashdata('meesage', 'Registrasi berhasil, silahkan minta konfirmasi akun ke admin sebelum login!');
-                return view('backend/auth/login', $data);
+                $this->session->setFlashdata('registrasi', 'Registrasi berhasil, silahkan minta konfirmasi akun ke admin sebelum login!');
+                return redirect()->to('/login');
             }
         } else {
             echo view('backend/auth/register', $data);
@@ -159,7 +158,6 @@ class Auth extends BaseController
     public function logout()
     {
         $this->session->destroy();
-        $this->session->stop();
-        return redirect()->to('/admin');
+        return redirect()->to('/login');
     }
 }

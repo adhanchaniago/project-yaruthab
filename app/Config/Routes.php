@@ -36,7 +36,18 @@ $routes->get('/rt', 'Pages::rt');
 $routes->get('/pesantren', 'Pages::pesantren');
 $routes->get('/portofolio', 'Pages::portofolio');
 $routes->get('/doc', 'Pages::doc');
-$routes->get('/admin', 'Auth::index');
+
+$routes->get('/login', 'Auth::index');
+$routes->get('/register', 'Auth::register');
+$routes->get('/admin', 'Pages::dashboard');
+$routes->get('/pengurus', 'Pages::pengurus');
+$routes->get('/logout', 'Auth::logout');
+
+$routes->get('/rumahtahfid', 'RumahTahfidz::index');
+$routes->post('/rumahtahfid', 'RumahTahfidz::tambahData');
+$routes->get('/hrumahtahfid/(:any)', 'RumahTahfidz::hapusData/$1');
+$routes->post('/erumahtahfid/(:any)', 'RumahTahfidz::editData/$1');
+// $routes->get('/erumahtahfid/(:any)', 'RumahTahfidz::editData/$1');
 
 /**
  * --------------------------------------------------------------------

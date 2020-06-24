@@ -137,7 +137,7 @@
                 <div class="footer-info">
                     <div class="row">
                         <div class="col-6 text-right">
-                            <h3>Yaruthab social links :</h3>
+                            <h3>Media sosial kami :</h3>
                         </div>
                         <div class="col-6 social-links">
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>

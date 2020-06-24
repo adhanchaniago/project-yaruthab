@@ -8,7 +8,7 @@ class UserModel extends Model
 {
     protected $table = "user";
     protected $useTimestamps = true;
-    protected $allowedFields = ['username', 'password', 'role_id', 'nama', 'is_active', 'created_at', 'inserted_at'];
+    protected $allowedFields = ['username', 'password', 'role_id', 'nama', 'is_active'];
 
     public function addUser($data = [])
     {

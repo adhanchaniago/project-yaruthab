@@ -2,6 +2,7 @@
 
 <?= $this->section('content'); ?>
 <div class="flash-data-success" data-flashdata="<?= session()->getFlashdata('success'); ?>"></div>
+<div class="flash-data" data-flashdata="<?= session()->getFlashdata('error'); ?>"></div>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -26,13 +27,27 @@
                                 <td><?= $r['nama']; ?></td>
                                 <td><?= $r['pembina']; ?></td>
                                 <td><?= $r['alamat']; ?></td>
-                                <td><?= $r['nama']; ?></td>
                                 <td>
-                                    <div class="row">
-                                        <div class="col-sm-6 col-lg-6">
+                                    <?php
+                                    $db = \Config\Database::connect();
+                                    // HITUNG JUMLAH PENGAJAR
+                                    $rt_id = $r['id'];
+                                    $n = $db->query("SELECT COUNT(`id_pengajar`) AS `n` FROM `mengajar` WHERE `id_rt`= $rt_id")->getRowArray();
+                                    // HITUNG JUMLAH SANTRI
+                                    $ns = $db->query("SELECT COUNT(`id`) AS `n` FROM `santri` WHERE `rt_id`= $rt_id")->getRowArray();
+                                    echo $n['n'] . ' / ' . $ns['n'];
+                                    // dd($n);
+                                    ?>
+                                </td>
+                                <td>
+                                    <div class="row text-center">
+                                        <div class="col-sm-12 col-lg-4">
+                                            <a href="https://wa.me/<?= $r['no_telp']; ?>" target="blank" class="btn btn-sm btn-success mt-1"><i class="fab fa-whatsapp"></i></a>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-4">
                                             <a href="<?= base_url('/erumahtahfid'); ?>/<?= $r['id']; ?>" data-toggle="modal" data-target="#tambahRT" data-id="<?= $r['id'] ?>" class="btn btn-sm btn-warning mt-1 edit-rt"><i class="fas fa-edit"></i></a>
                                         </div>
-                                        <div class="col-sm-6 col-lg-6">
+                                        <div class="col-sm-12 col-lg-4">
                                             <a href="<?= base_url('/hrumahtahfid'); ?>/<?= $r['id']; ?>" class="tombol-hapus btn btn-sm btn-danger mt-1"><i class="fas fa-trash"></i></a>
                                         </div>
                                     </div>
@@ -75,8 +90,12 @@
                         <input type="text" class="form-control" name="nama" id="nama_rt" placeholder="Nama Rumah Tahfidz" required autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <label for="pembina">Rumah Tahfidz</label>
+                        <label for="pembina">Pimpinan / pembina</label>
                         <input type="text" class="form-control" name="pembina" id="pembina_rt" placeholder="Pembina/pimpinan Rumah Tahfidz" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="pembina">Nomor telepon pembina / rumah tahfidz</label>
+                        <input type="number" class="form-control" name="no" id="no_rt" placeholder="08xxx" required autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
@@ -110,6 +129,7 @@
                 console.log(data);
                 $('#nama_rt').val(data.nama);
                 $('#pembina_rt').val(data.pembina);
+                $('#no_rt').val(data.no_telp);
                 $('#alamat_rt').val(data.alamat);
             }
         });

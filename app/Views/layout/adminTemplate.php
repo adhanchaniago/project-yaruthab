@@ -29,8 +29,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url('assets') ?>/vendor/datatables/css/dataTables.bootstrap4.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= base_url('vendor') ?>/adminlte/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('vendor') ?>/adminlte/dist/css/adminlte.min.css">
+    <!-- dropify -->
+    <link rel="stylesheet" href="<?= base_url('assets') ?>/css/dropify.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?= base_url('vendor') ?>/adminlte/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="<?= base_url('vendor') ?>/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -185,6 +192,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
+
+    <!-- jQuery -->
+    <script src="<?= base_url('vendor') ?>/adminlte/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="<?= base_url('vendor') ?>/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- SELECT 2 -->
+    <script src="<?= base_url('vendor') ?>/adminlte/plugins/select2/js/select2.full.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="<?= base_url('vendor') ?>/adminlte/dist/js/adminlte.min.js"></script>
+    <!-- datatable -->
+    <script src="<?= base_url('assets') ?>/vendor/datatables/js/jquery.dataTables.js"></script>
+    <script src="<?= base_url('assets') ?>/vendor/datatables/js/dataTables.bootstrap4.js"></script>
+    <!-- sweetalert -->
+    <script src="<?= base_url('assets'); ?>/js/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/js/myscript.js"></script>
+    <!-- dropify -->
+    <script src="<?= base_url('assets'); ?>/js/dropify.js"></script>
     <script>
         const menu = document.getElementsByClassName('has-treeview');
         for (let i = 0; i < menu.length; i++) {
@@ -197,22 +221,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 }
             }
         }
-
         $(function() {
             $("#tableRT").DataTable();
+            $('.dropify').dropify({
+                error: {
+                    'fileSize': 'Ukuran file terlalu besar. ({{ value }} max).',
+                    'fileExtension': 'Format hanya diperbolehkan ({{ value }}).'
+                }
+            });
+
+            //Initialize Select2 Elements
+            $('.select2').select2();
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            });
         });
     </script>
-    <!-- jQuery -->
-    <script src="<?= base_url('vendor') ?>/adminlte/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url('vendor') ?>/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url('vendor') ?>/adminlte/dist/js/adminlte.min.js"></script>
-    <!-- datatable -->
-    <script src="<?= base_url('assets') ?>/vendor/datatables/js/jquery.dataTables.js"></script>
-    <script src="<?= base_url('assets') ?>/vendor/datatables/js/dataTables.bootstrap4.js"></script>
-    <script src="<?= base_url('assets'); ?>/js/sweetalert2.all.min.js"></script>
-    <script src="<?= base_url('assets'); ?>/js/myscript.js"></script>
     <?= $this->renderSection('ajax'); ?>
 
 </body>

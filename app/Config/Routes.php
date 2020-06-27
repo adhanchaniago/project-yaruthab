@@ -40,14 +40,20 @@ $routes->get('/doc', 'Pages::doc');
 $routes->get('/login', 'Auth::index');
 $routes->get('/register', 'Auth::register');
 $routes->get('/admin', 'Pages::dashboard');
-$routes->get('/pengurus', 'Pages::pengurus');
 $routes->get('/logout', 'Auth::logout');
 
 $routes->get('/rumahtahfid', 'RumahTahfidz::index');
 $routes->post('/rumahtahfid', 'RumahTahfidz::tambahData');
 $routes->get('/hrumahtahfid/(:any)', 'RumahTahfidz::hapusData/$1');
 $routes->post('/erumahtahfid/(:any)', 'RumahTahfidz::editData/$1');
-// $routes->get('/erumahtahfid/(:any)', 'RumahTahfidz::editData/$1');
+
+
+$routes->get('/pengajar', 'Pengajar::index');
+$routes->get('/pengajar/update/(:any)', 'Pengajar::edit/$1');
+$routes->get('/hpengajar/(:any)', 'Pengajar::hapusData/$1');
+$routes->post('/epengajar/(:any)', 'Pengajar::updateData/$1');
+$routes->post('/pengajar', 'Pengajar::tambahData');
+
 
 /**
  * --------------------------------------------------------------------

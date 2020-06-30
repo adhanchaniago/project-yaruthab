@@ -11,7 +11,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <table id="tablePG" class="table table-responsive-md table-bordered table-striped">
+                <table id="tableRT" class="table table-responsive-md table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Nama</th>
@@ -53,11 +53,8 @@
                                             <a href="https://wa.me/<?= $p['no_hp']; ?>" target="blank" class="btn btn-sm btn-success mt-1"><i class="fab fa-whatsapp"></i></a>
                                         </div>
                                         <div class="col-sm-12 col-lg-4">
-                                            <a href="<?= base_url('/pengajar/update'); ?>/<?= $p['id']; ?>" class="btn btn-sm btn-warning mt-1 tombol-edit"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= base_url('/pengajar/'); ?>/<?= $p['id']; ?>" class="btn btn-sm btn-warning mt-1 tombol-edit"><i class="fas fa-edit"></i></a>
                                         </div>
-                                        <!-- <div class="col-sm-12 col-lg-4">
-                                            <a href="<?#= base_url('/epengajar'); ?>/<?#= $p['id']; ?>" data-toggle="modal" data-target="#tambahPG" data-id="<?#= $p['id'] ?>" class="btn btn-sm btn-warning mt-1 tombol-edit"><i class="fas fa-edit"></i></a>
-                                        </div> -->
                                         <div class="col-sm-12 col-lg-4">
                                             <a href="<?= base_url('/hpengajar'); ?>/<?= $p['id']; ?>" class="tombol-hapus btn btn-sm btn-danger mt-1"><i class="fas fa-trash"></i></a>
                                         </div>

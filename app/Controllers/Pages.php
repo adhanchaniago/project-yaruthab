@@ -2,12 +2,33 @@
 
 namespace App\Controllers;
 
+use App\Models\PengurusModel;
+use App\Models\JabatanModel;
+
 class Pages extends BaseController
 {
+    public function __construct()
+    {
+        $this->model = new PengurusModel();
+        $this->jabatan = new JabatanModel();
+    }
     public function index()
     {
+        $pengurus = $this->db->table('pengurus')
+            ->select('jabatan_pengurus.jabatan as jabatan, pengurus.*')
+            ->join('jabatan_pengurus', 'jabatan_pengurus.id = pengurus.id_jabatan')
+            ->get()
+            ->getResultArray();
+
         $data = [
-            'title' => 'Yaruthab | Probolinggo'
+            'title' => 'Yaruthab | Probolinggo',
+            'pengurus' => $pengurus,
+            'jabatan' => $this->jabatan->findColumn('jabatan'),
+            'nrt' => $this->db->table('rumah_tahfid')->countAllResults(),
+            'nst' => $this->db->table('santri')->countAllResults(),
+            'npg' => $this->db->table('pengajar')->countAllResults(),
+            // 'ndn' => $this->db->table('donatur')->countAllResults()
+
         ];
         return view('frontend/index', $data);
     }
@@ -47,7 +68,8 @@ class Pages extends BaseController
     public function dashboard()
     {
         $data = [
-            'title' => 'Dashboard'
+            'title' => 'Dashboard',
+            'path' => 'Dashboard'
         ];
 
         return view('backend/dashboard', $data);

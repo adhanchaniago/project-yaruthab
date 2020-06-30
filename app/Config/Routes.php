@@ -49,10 +49,23 @@ $routes->post('/erumahtahfid/(:any)', 'RumahTahfidz::editData/$1');
 
 
 $routes->get('/pengajar', 'Pengajar::index');
-$routes->get('/pengajar/update/(:any)', 'Pengajar::edit/$1');
+$routes->get('/pengajar/(:any)', 'Pengajar::edit/$1');
 $routes->get('/hpengajar/(:any)', 'Pengajar::hapusData/$1');
 $routes->post('/epengajar/(:any)', 'Pengajar::updateData/$1');
 $routes->post('/pengajar', 'Pengajar::tambahData');
+
+$routes->get('/profile', 'Profile::index');
+$routes->post('/profile', 'Profile::index');
+
+$routes->get('/pengurus', 'Pengurus::index');
+$routes->get('/pengurus/(:any)', 'Pengurus::edit/$1');
+$routes->post('/pengurus', 'Pengurus::tambahData');
+$routes->post('/epengurus/(:any)', 'Pengurus::editData/$1');
+$routes->get('/hpengurus/(:any)', 'Pengurus::hapusData/$1');
+
+$routes->get('/santri', 'Santri::index');
+$routes->get('/santri/(:any)', 'Santri::hapusData/$1');
+$routes->post('/santri', 'Santri::tambahData');
 
 
 /**

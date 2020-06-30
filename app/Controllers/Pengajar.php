@@ -13,18 +13,20 @@ class Pengajar extends BaseController
         $this->model = new PengajarModel();
         $this->mengajar = new MengajarModel();
         $this->rt = new RumahTahfidModel();
-        helper(['form', 'url']);
         $this->session = session();
     }
 
     public function index()
     {
+        $path = $this->db->table('user_sub_menu')
+            ->select('path')->getWhere(['title' => 'Data Pengajar'])->getRowArray();
         $data = [
             'title' => 'Data pengajar',
             'pengajar' => $this->model->findAll(),
             'rt' => $this->rt->findColumn('nama'),
+            'path' => $path['path']
         ];
-        return view('/backend/pengajar', $data);
+        return view('/backend/pengajar/pengajar', $data);
     }
 
     public function getDataById($id)
@@ -46,8 +48,7 @@ class Pengajar extends BaseController
 
     public function getNamaRT($id)
     {
-        $db = \Config\Database::connect();
-        $data = $db->table('rumah_tahfid')
+        $data = $this->db->table('rumah_tahfid')
             ->select('rumah_tahfid.nama as nama')
             ->join('mengajar', 'rumah_tahfid.id = mengajar.id_rt')->getWhere(['mengajar.id_pengajar' => $id])->getResultArray();
         return $data;
@@ -55,12 +56,21 @@ class Pengajar extends BaseController
 
     public function getNamaRtLain($id)
     {
-        $db = \Config\Database::connect();
-        $data = $db->query("SELECT `a`.`id`,`a`.`nama`
+        $data = $this->db->query("SELECT `a`.`id`,`a`.`nama`
         FROM `rumah_tahfid` `a`
         WHERE `a`.`id` NOT IN (SELECT `id_rt` FROM `mengajar` WHERE `id_pengajar` = $id)")->getResultArray();
         return $data;
     }
+
+    public function hapusData($id)
+    {
+        $this->mengajar->where('id_pengajar', $id)->delete();
+        $this->hapusGambar($id);
+        $this->model->delete($id);
+        $this->session->setFlashdata('success', 'Data berhasil di hapus');
+        return redirect()->to('/pengajar');
+    }
+
     public function tambahData()
     {
         // CONVERT NOMOR HP KE 62
@@ -84,44 +94,6 @@ class Pengajar extends BaseController
         return redirect()->to('/pengajar');
     }
 
-    public function hapusData($id)
-    {
-        $this->mengajar->where('id_pengajar', $id)->delete();
-        $this->hapusGambar($id);
-        $this->model->delete($id);
-        $this->session->setFlashdata('success', 'Data berhasil di hapus');
-        return redirect()->to('/pengajar');
-    }
-
-    // MENAMPILKAN VIEW EDIT
-    public function edit($id)
-    {
-        $data = [
-            'title' => "Edit",
-            'pengajar' => $this->model->where('id', $id)->first(),
-            'rt_lain' => $this->getNamaRtLain($id),
-            'nama_rt' => $this->getNamaRT($id)
-        ];
-        return view('backend/edit', $data);
-    }
-
-    public function updateData($id)
-    {
-        $img = $this->model->where('id', $id)->findColumn('img');
-
-        $data = [
-            'nama' => $this->request->getVar('nama'),
-            'alamat' => trim($this->request->getVar('alamat')),
-            'img' => $this->uploadGambar(),
-            'no_hp' => $this->request->getVar('no'),
-        ];
-
-        $this->model->update($id, $data);
-        $this->updateDataMengajar($id);
-
-        $this->session->setFlashdata('success', 'Data berhasil di update');
-        return redirect()->to('/pengajar');
-    }
 
     public function tambahDataMengajar()
     {
@@ -151,6 +123,47 @@ class Pengajar extends BaseController
         }
     }
 
+    // MENAMPILKAN VIEW EDIT
+    public function edit($id)
+    {
+        $path = $this->db->table('user_sub_menu')
+            ->select('path')->getWhere(['title' => 'Data Pengajar'])->getRowArray();
+        $data = [
+            'title' => "Edit",
+            'pengajar' => $this->model->where('id', $id)->first(),
+            'rt_lain' => $this->getNamaRtLain($id),
+            'nama_rt' => $this->getNamaRT($id),
+            'path' => $path['path'] . ' / Edit'
+        ];
+        return view('backend/pengajar/edit', $data);
+    }
+
+    public function updateData($id)
+    {
+        $img = $this->model->where('id', $id)->findColumn('img');
+
+        $data = [
+            'nama' => $this->request->getVar('nama'),
+            'alamat' => trim($this->request->getVar('alamat')),
+            'img' => $this->uploadGambar($id),
+            'no_hp' => $this->request->getVar('no'),
+        ];
+
+        // hapus gambar dalam folder assets jika user upload gambar profile baru
+        $file = $this->request->getFile('gambar');
+        if ($file->getName() != "") {
+            if (file_exists(FCPATH . '/assets/img/uploads/profile/' . $img[0])) {
+                $this->hapusGambar($id);
+            }
+        }
+
+        $this->model->update($id, $data);
+        $this->updateDataMengajar($id);
+
+        $this->session->setFlashdata('success', 'Data berhasil di update');
+        return redirect()->to('/pengajar');
+    }
+
     public function updateDataMengajar($id)
     {
         $rt =  $this->request->getVar('tempat');
@@ -173,8 +186,6 @@ class Pengajar extends BaseController
             if (!$rt) {
                 $this->mengajar->where('id_pengajar', $id)->delete();
             } else {
-
-
                 for ($j = 0; $j < count($rt); $j++) {
                     $idrt = $this->rt->where('nama', $rt[$j])
                         ->first();
@@ -199,19 +210,18 @@ class Pengajar extends BaseController
 
                 for ($i = 0; $i < count($dataMengajar); $i++) {
                     if (!in_array($dataMengajar[$i], $idi)) {
-                        $db = \Config\Database::connect();
                         $x = $dataMengajar[$i];
-                        $db->query("DELETE FROM `mengajar` WHERE `id_rt` = $x AND `id_pengajar` = $id");
+                        $this->db->query("DELETE FROM `mengajar` WHERE `id_rt` = $x AND `id_pengajar` = $id");
                     }
                 }
             }
         }
     }
 
-    public function uploadGambar()
+    public function uploadGambar($id = null)
     {
         $file = $this->request->getFile('gambar');
-        $img = $this->model->findColumn('img');
+        $img = $this->model->where('id', $id)->findColumn('img');
         if ($file->isValid()) {
             if ($file->getName() != "profile.png") {
                 $namaFile = $file->getRandomName();

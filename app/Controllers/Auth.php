@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Models\ProfileModel;
 
 class Auth extends BaseController
 {
@@ -10,9 +10,8 @@ class Auth extends BaseController
 
     public function __construct()
     {
-        $this->auth = new UserModel();
+        $this->auth = new ProfileModel();
         helper(['form', 'url']);
-        $this->session = session();
     }
 
     public function index()
@@ -51,8 +50,8 @@ class Auth extends BaseController
 
     private function login()
     {
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
+        $username = htmlspecialchars($this->request->getPost('username'));
+        $password = htmlspecialchars($this->request->getPost('password'));
         $user = $this->auth->where('username', $username)->first();
 
         if ($user) { // CEK APAKAH USERNAME YANG DIINPUT ADA
@@ -141,7 +140,8 @@ class Auth extends BaseController
                     'role_id' => 2,
                     'nama' => $this->request->getPost('nama'),
                     'no_hp' => $this->request->getPost('no_hp'),
-                    'is_active' => 0
+                    'is_active' => 0,
+                    'img' => 'profile.png'
                 ];
 
                 # insert data to database

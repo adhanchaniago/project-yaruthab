@@ -4,11 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class ProfileModel extends Model
 {
     protected $table = "user";
     protected $useTimestamps = true;
-    protected $allowedFields = ['username', 'password', 'role_id', 'nama', 'is_active'];
+    protected $allowedFields = ['username', 'password', 'role_id', 'nama', 'img', 'is_active'];
 
     public function addUser($data = [])
     {

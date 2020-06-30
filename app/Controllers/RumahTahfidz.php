@@ -19,9 +19,12 @@ class RumahTahfidz extends BaseController
 
     public function index()
     {
+        $path = $this->db->table('user_sub_menu')
+            ->select('path')->getWhere(['title' => 'Data rumah tahfidz'])->getRowArray();
         $data = [
             'title' => 'Data rumah tahfidz',
             'rumahtahfid' => $this->model->findAll(),
+            'path' => $path['path']
         ];
         echo view('/backend/rumahTahfid', $data);
     }

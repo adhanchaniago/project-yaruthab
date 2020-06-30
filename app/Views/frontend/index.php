@@ -37,7 +37,7 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero">
     <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
-        <h1>Yayasan Rumah Tahfid Probolinggo</h1>
+        <h1>Yayasan Rumah Tahfidz Probolinggo</h1>
         <h2>YARUTHAB</h2>
         <div class="d-flex">
             <a href="#about" class="btn-get-started scrollto">Perkenalkan</a>
@@ -62,7 +62,7 @@
                         <div class="col-lg-3 col-md-3 col-3 d-md-flex align-items-md-stretch">
                             <div class="count-box">
                                 <i class="icofont-ui-home"></i>
-                                <span data-toggle="counter-up">65</span>
+                                <span data-toggle="counter-up"><?= $nrt; ?></span>
                                 <p>Rumah Tahfid</p>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                         <div class="col-lg-3 col-md-3 col-3 d-md-flex align-items-md-stretch">
                             <div class="count-box">
                                 <i class="icofont-learn"></i>
-                                <span data-toggle="counter-up">85</span>
+                                <span data-toggle="counter-up"><?= $nst; ?></span>
                                 <p>Santri</p>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                         <div class="col-lg-3 col-md-3 col-3 d-md-flex align-items-md-stretch">
                             <div class="count-box">
                                 <i class="icofont-users-alt-2"></i>
-                                <span data-toggle="counter-up">12</span>
+                                <span data-toggle="counter-up"><?= $npg; ?></span>
                                 <p>Pendidik</p>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                             </p>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="<?= base_url('assets') ?>/img/features-1.png" alt="" class="img-fluid">
+                            <img src="<?= base_url('assets') ?>/img/konten/sejarah.png" height="400" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -233,7 +233,7 @@
 
                 <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <img src="<?= base_url('assets') ?>/img/visi.png" class="card-img-top" alt="...">
+                        <img src="<?= base_url('assets') ?>/img/konten/visi.png" class="card-img-top" alt="...">
                         <div class="card-icon">
                             <i class="ri-filter-3-line"></i>
                         </div>
@@ -248,7 +248,7 @@
 
                 <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="card">
-                        <img src="<?= base_url('assets') ?>/img/misi.png" class="card-img-top" alt="...">
+                        <img src="<?= base_url('assets') ?>/img/konten/misi.png" class="card-img-top" alt="...">
                         <div class="card-icon">
                             <i class="ri-check-double-fill"></i>
                         </div>
@@ -520,55 +520,31 @@
             </div>
 
             <div class="row">
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="member" data-aos="fade-up" data-aos-delay="100">
-                        <div class="pic"><img src="<?= base_url('assets') ?>/img/team/profile.png" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
+                <?php foreach ($pengurus as $p) : ?>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="member" data-aos="fade-up" data-aos-delay="100">
+                            <div class="pic">
+                                <img src="<?= base_url('assets') ?>/img/uploads/profile/<?= $p['img']; ?>" class="img-fluid" alt="">
+                            </div>
+                            <div class="member-info">
+                                <h4><?= $p['nama']; ?></h4>
+                                <span><?= $p['jabatan']; ?></span>
+                                <div class="social">
+                                    <?php if ($p['twitter']) : ?>
+                                        <a targer="blank" href="<?= $p['twitter']; ?>"><i class="icofont-twitter"></i></a>
+                                    <?php endif; ?>
+                                    <?php if ($p['facebook']) : ?>
+                                        <a targer="blank" href="<?= $p['facebook']; ?>"><i class="icofont-facebook"></i></a>
+                                    <?php endif; ?>
+                                    <?php if ($p['instagram']) : ?>
+                                        <a targer="blank" href="<?= $p['instagram']; ?>"><i class="icofont-instagram"></i></a>
+                                    <?php endif; ?>
+                                    <a targer="blank" href="mailto:<?= $p['email']; ?>"><i class="icofont-email"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="member">
-                        <div class="pic"><img src="<?= base_url('assets') ?>/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Product Manager</span>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="member">
-                        <div class="pic"><img src="<?= base_url('assets') ?>/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-                        <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                            <div class="social">
-                                <a href=""><i class="icofont-twitter"></i></a>
-                                <a href=""><i class="icofont-facebook"></i></a>
-                                <a href=""><i class="icofont-instagram"></i></a>
-                                <a href=""><i class="icofont-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <?php endforeach; ?>
             </div>
 
         </div>

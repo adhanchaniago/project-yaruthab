@@ -8,5 +8,5 @@ class SantriModel extends Model
 {
     protected $table = "santri";
     protected $useTimestamps = true;
-    protected $allowedFields = ['rt_id', 'wali_id', 'nama', 'img'];
+    protected $allowedFields = ['rt_id', 'wali_id', 'nama', 'tgl_daftar', 'img'];
 }

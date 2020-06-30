@@ -5,10 +5,17 @@
 <!-- mengambil menu dari tabel user menu -->
 <?php $userMenu = $db->query("SELECT * FROM `user_menu`")->getResultArray(); ?>
 <!-- mengambil user sub menu join tambel user_menu -->
-<?php $userSubMenu = $db->query("SELECT `u`.`id`,`u`.`menu_id`,`u`.`title`,`u`.`url`,`u`.`icon` FROM `user_sub_menu` as `u` 
+<?php $userSubMenu = $db->query("SELECT `u`.`id`,`u`.`menu_id`,`u`.`title`,`u`.`url`,`u`.`icon`,`u`.`path` FROM `user_sub_menu` as `u` 
     JOIN `user_menu` 
     ON `u`.`menu_id` = `user_menu`.`id`")
     ->getResultArray();
+?>
+<!-- load data user berdasar sesi -->
+<?php $id = session()->get('id');
+$user = $db->table('user')
+    ->select('*')
+    ->getWhere(['id' => $id])
+    ->getRowArray();
 ?>
 
 
@@ -79,10 +86,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url('assets') ?>/img/team/profile.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url('assets') ?>/img/uploads/profile/<?= $user['img']; ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="<?= base_url('/profile') ?>" class="d-block"><?= session()->get('nama'); ?></a>
+                        <a href="<?= base_url('/profile') ?>" class="d-block"><?= $user['nama']; ?></a>
                     </div>
                 </div>
 
@@ -139,7 +146,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                         <?php endforeach; ?>
 
-
+                        <li class="nav-item">
+                            <a href=" <?= base_url('/logout') ?>/" class="nav-link">
+                                <i class="fas fa-sign-out-alt mr-1 pt-1"></i>
+                                <p>
+                                    Logout
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -159,7 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="<?= base_url('/') ?>">Home</a></li>
-                                <li class="breadcrumb-item active"><?= $title; ?></li>
+                                <li class="breadcrumb-item active"><?= $path; ?></li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->

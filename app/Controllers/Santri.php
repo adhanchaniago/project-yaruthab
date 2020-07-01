@@ -16,9 +16,10 @@ class Santri extends BaseController
         $this->rt = new RumahTahfidModel();
     }
 
+    ####################################################### VIEW CONTROL ####################################################### 
+
     public function index()
     {
-
         $data = [
             'title' => 'Data Santri',
             'path' => 'Data Santri',
@@ -26,6 +27,18 @@ class Santri extends BaseController
             'rt' => $this->rt->findColumn('nama'),
         ];
         return view('backend/santri/index', $data);
+    }
+
+    public function edit($id)
+    {
+        $santri = $this->getAllDataSantri($id);
+        $data = [
+            'title' => 'Edit Data Santri',
+            'path' => 'Data Santri / Edit',
+            'santri' => $santri,
+            'rt' => $this->rt->findColumn('nama'),
+        ];
+        return view('backend/santri/edit', $data);
     }
 
     ####################################################### CRUD DATA ####################################################### 
@@ -77,6 +90,38 @@ class Santri extends BaseController
             $this->wali->delete($idWali[0]);
         }
         $this->session->setFlashdata('success', 'Data berhasil di hapus');
+        return redirect()->to('/santri');
+    }
+
+    public function editData($id)
+    {
+        $idWali = $this->request->getVar('id_wali');
+        $dataWali = [
+            'nama' => $this->request->getVar('wali'),
+            'alamat' => trim($this->request->getVar('alamat')),
+            'no_hp' => $this->request->getVar('no')
+        ];
+        $this->wali->update($idWali, $dataWali);
+
+        $dataSantri = [
+            'wali_id' => $this->getIdWali(),
+            'rt_id' => $this->getIdRt(),
+            'tgl_daftar' => $this->request->getVar('tgl'),
+            'nama' => $this->request->getVar('nama'),
+            'img' => $this->uploadGambar($id)
+        ];
+
+        // hapus gambar dalam folder assets jika user upload gambar profile baru
+        $file = $this->request->getFile('gambar');
+        $img = $this->model->where('id', $id)->findColumn('img');
+        if ($file->getName() != "") {
+            if (file_exists(FCPATH . '/assets/img/uploads/profile/' . $img[0])) {
+                $this->hapusGambar($id);
+            }
+        }
+
+        $this->model->update($id, $dataSantri);
+        $this->session->setFlashdata('success', 'Data berhasil di update');
         return redirect()->to('/santri');
     }
 

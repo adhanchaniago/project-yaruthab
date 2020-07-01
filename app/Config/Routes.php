@@ -64,8 +64,11 @@ $routes->post('/epengurus/(:any)', 'Pengurus::editData/$1');
 $routes->get('/hpengurus/(:any)', 'Pengurus::hapusData/$1');
 
 $routes->get('/santri', 'Santri::index');
+$routes->get('/santri/edit/(:any)', 'Santri::edit/$1');
 $routes->get('/santri/(:any)', 'Santri::hapusData/$1');
+$routes->get('/detailSantri/(:any)', 'Santri::getDataById/$1');
 $routes->post('/santri', 'Santri::tambahData');
+$routes->post('/santri/(:any)', 'Santri::editData/$1');
 
 
 /**

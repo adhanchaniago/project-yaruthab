@@ -59,7 +59,7 @@
                     </div>
                     <div class="col">
                         <label for="gambar-i">Foto</label>
-                        <input type="file" class="dropify" name="gambar" id="gambar-i" data-height="95" data-max-file-size="2M" data-allowed-file-extensions="jpg jpeg png" data-default-file="<?= base_url('assets'); ?>/img/uploads/profile/<?= $pengurus['img']; ?>" />
+                        <input type="file" class="dropify" name="gambar" id="gambar-i" data-height="95" data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png" data-default-file="<?= base_url('assets'); ?>/img/uploads/profile/<?= $pengurus['img']; ?>" />
                     </div>
                 </div>
             </div>

@@ -35,7 +35,7 @@
                                             <a href="https://wa.me/<?= $s['no_hp']; ?>" target="blank" class="btn btn-sm btn-success mt-1"><i class="fab fa-whatsapp"></i></a>
                                         </div>
                                         <div class="col-sm-12 col-lg-4">
-                                            <a href="<?= base_url('/santri/'); ?>/<?= $s['id']; ?>" class="btn btn-sm btn-warning mt-1"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= base_url('/santri/edit'); ?>/<?= $s['id']; ?>" class="btn btn-sm btn-warning mt-1"><i class="fas fa-edit"></i></a>
                                         </div>
                                         <div class="col-sm-12 col-lg-4">
                                             <a href="<?= base_url('/santri'); ?>/<?= $s['id']; ?>" class="tombol-hapus btn btn-sm btn-danger mt-1"><i class="fas fa-trash"></i></a>
@@ -204,7 +204,7 @@
     $('.tombol-detail').on('click', function() {
         const id = $(this).data('id');
         $.ajax({
-            url: '<?= base_url('/santri/getDataById'); ?>/' + id,
+            url: '<?= base_url('/detailSantri'); ?>/' + id,
             data: {
                 id: id
             },

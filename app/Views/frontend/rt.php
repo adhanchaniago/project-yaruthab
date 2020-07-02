@@ -58,7 +58,7 @@
 
                 <div class="row" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-12">
-                        <div class="icon-box">
+                        <div class="icon-box" id="rt-ico">
                             <i class="icofont-building-alt"></i>
                             <h4>Rumah Thafidz</h4>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, commodi officia
@@ -139,7 +139,7 @@
                             </p>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="<?= base_url('assets') ?>/img/features-1.png" alt="" class="img-fluid">
+                            <img src="<?= base_url('assets') ?>/img/konten/sejarah.png" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                             </ul>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="<?= base_url('assets') ?>/img/features-2.png" alt="" class="img-fluid">
+                            <img src="<?= base_url('assets') ?>/img/konten/sejarah.png" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -202,86 +202,27 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
+                            <table id="example2" class="table table-bordered table-responsive-sm table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Nama Rumah Tahfidz</th>
+                                        <th>Rumah Tahfidz</th>
+                                        <th>Pembina</th>
                                         <th>Alamat</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasanatin</td>
-                                        <td>Jl. Panglima Sudirman No. Lorem, ipsum dolor.</td>
-                                    </tr>
+                                    <?php foreach ($rumahtahfid as $r) : ?>
+                                        <tr>
+                                            <td><?= $r['nama']; ?></td>
+                                            <td><?= $r['pembina']; ?></td>
+                                            <td><?= $r['alamat']; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>Nama Rumah Tahfidz</th>
+                                        <th>Pembina</th>
                                         <th>Alamat</th>
                                     </tr>
                                 </tfoot>

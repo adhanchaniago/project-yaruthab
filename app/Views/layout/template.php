@@ -172,7 +172,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="MyModal" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header d-flex">
                     <img src="<?= base_url('assets') ?>/img/logo1.png" alt="logo">
@@ -184,8 +184,8 @@
                     </button>
                 </div>
                 <div class="modal-body text-center">
-                    <h5>Website dalam tahap pengembangan</h5>
-                    Sebagian data yang tertera dalam laman web masih berupa data dummies
+                    <h5>Comming Soon !</h5>
+                    Yarustore dalam tahap development. <i>Stay tuned!!!</i>
                 </div>
                 <div class="modal-footer">
                     <p class="text-center">
@@ -212,9 +212,6 @@
     <script src="<?= base_url('assets') ?>/js/popper.js"></script>
     <script src="<?= base_url('assets') ?>/js/main.js"></script>
     <!-- Template Main JS File -->
-    <script>
-        $('#MyModal').modal('show');
-    </script>
     <script>
         $(function() {
             $("#example1").DataTable();

@@ -27,7 +27,7 @@
             </ul>
         </nav><!-- .nav-menu -->
 
-        <a href="#about" class="get-started-btn scrollto"> <i class="icofont-basket"></i> Ya Store</a>
+        <a href="#MyModal" data-toggle="modal" data-target="#MyModal" class="get-started-btn scrollto"> <i class="icofont-basket"></i> Ya Store</a>
 
     </div>
 </header>
@@ -52,9 +52,7 @@
     <!-- ======= About Section ======= -->
 
     <section id="about" class="about">
-
         <div class="container" data-aos="fade-up">
-
             <div class="row justify-content-end">
                 <div class="col-lg-11 col-md-11 col-sm-11">
                     <div class="row justify-content-end">
@@ -86,7 +84,7 @@
                         <div class="col-lg-3 col-md-3 col-3 d-md-flex align-items-md-stretch">
                             <div class="count-box">
                                 <i class=" icofont-waiter-alt"></i>
-                                <span data-toggle="counter-up">15</span>
+                                <span data-toggle="counter-up"><?= $ndn; ?></span>
                                 <p>Donatur</p>
                             </div>
                         </div>
@@ -132,26 +130,24 @@
                     <div class="row">
 
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Sejarah Berdirinya Yaruthab</h3>
-                            <p class="font-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore
-                                magna aliqua.
-                            </p>
-                            <ul>
-                                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                <li><i class="ri-check-double-line
-                    "></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                                    pariatur.</li>
-                            </ul>
+                            <h3>Pendirian Yaruthab</h3>
                             <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
+                                Yayasan Rumah Tahfidz Probolinggo atau disebut Yaruthab, adalah sebuah Yayasan yang berbadan hukum dan terdaftar di Kementerian Hukum dan HAM yang berkhidmat untuk kemaslahatan ummat, terutama dibidang pendidikan Al-Qur’an khususnya pada Tahfidzul Qur’an (menghafal Al-Qur’an).
+                            </p>
+
+                            <p>
+                                Yayasan ini berdiri atas inisiatif para pengurus dan pengajar rumah tahfidz di Kota dan Kabupaten Probolinggo.
+                            </p>
+                            <p>
+                                Yayasan siap bersinergi dan bekerjasama dengan semua pihak baik lembaga, instansi, perusahaan ataupun perseorangan yang mempunyai itikad baik untuk mewujudkan Visi dan Misi tersebut, serta menempuh berbagai cara untuk menjaga semangat para penghafal Qur’an dengan mencari metode yang tepat, memfasilitasi kenyamanan dalam menghafal, mensejahterakan para pengajar tahfidz, mengadakan kegiatan yang menunjang dan menumbuhkan semangat menghafal santri.
+                            </p>
+                            <p>
+                                Perjuangan ini membutuhkan pengorbanan yang tidak sedikit, baik berupa tenaga, fikiran bahkan materiil.
+                                Perjuangan ini akan menjadi lebih mudah jika Kita semua men-sedekah-kan fikiran, ilmu, tenaga, dan sebagian harta kita, tentunya sesuai dengan kemampuan Kita. Ini akan menjadi ladang amal jariyah Kita yang akan Kita tuai di akhirat kelak, amiin.
+                                <blockquote class="blockquote">
+                                    “Barang siapa yang membantu urusan Allah, niscaya Allah akan membantu urusannya”.
+                                </blockquote>
+
                             </p>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -163,60 +159,79 @@
                     <div class="row">
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
                             <h3>Dokumen Yang Terkait Dengan Pendirian Yaruthab</h3>
-                            <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
-                            </p>
-                            <p class="font-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore
-                                magna aliqua.
-                            </p>
                             <ul>
-                                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.
+                                <li>
+                                    <i class="ri-check-double-line"></i>
+                                    Akta Notaris Rhozy Wirianto, SH.,M.Kn. nomor 04 tanggal 24 Maret 2017.
                                 </li>
-                                <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
-                                    Ipsum neque dolor voluptate nisi sed.</li>
-                                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
-                                    pariatur.</li>
+                                <li>
+                                    <i class="ri-check-double-line"></i> Surat Keputusan Menteri Hukum dan Hak Asasi Manusia Republik Indonesia dengan nomor : AHU-0006042.AH.01.04.Tahun 2017 tanggal 31 Maret 2017
+                                </li>
+                                <li>
+                                    <i class="ri-check-double-line"></i>
+                                    Surat Keterangan Domisili dari Kelurahan Ketapang nomor : 470/I/20/452.502.3/2016 tanggal 1 September 2016
+                                </li>
+                                <li>
+                                    <i class="ri-check-double-line"></i>
+                                    Surat Keterangan Terdaftar dari Kantor Pelayanan Pajak Pratama Probolinggo nomor : S-5521KT/WPJ.12/KP.0603/2017 tanggal 17 April 2017, NPWP : 81.769.059.7-625.000 dengan KLU : 94910 Kegiatan Organisasi Keagamaan
+                                </li>
+                                <li>
+                                    <i class="ri-check-double-line"></i>
+                                    Rekening Bank yang digunakan Bank Syariah Mandiri, Bank Jatim, Bank Muamalat dan Bank Rakyat Indonesia Cabang Probolinggo
+                                </li>
+                                <li>
+                                    <i class="ri-check-double-line"></i>
+                                    Media sosial yang digunakan Facebook : yaruthab, email : yaruthab@gmail.com dan telepon/WA nomor 0811 33 1167 (Official).
+                                </li>
+
                             </ul>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="<?= base_url('assets') ?>/img/features-2.png" alt="" class="img-fluid">
+                            <img src="<?= base_url('assets') ?>/img/konten/dokumen.png" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane" id="tab-3">
                     <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                        <div class="col-lg-7 order-2 order-lg-1 mt-3 mt-lg-0">
                             <h3>Struktur Organisasi</h3>
-                            <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
-                            </p>
-                            <ul>
-                                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.
-                                </li>
-                                <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
-                                    Ipsum neque dolor voluptate nisi sed.</li>
-                            </ul>
-                            <p class="font-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore
-                                magna aliqua.
-                            </p>
+                            <dl class="row">
+                                <p class="mt-3 col-12 h4">Dewan Pembina</p>
+                                <dt class="col-4">Ketua </dt>
+                                <div class="col-1">:</div>
+                                <dd class="col-7"> KH Abd. Aziz RM (RT An-Najiah)</dd>
+                                <dt class="col-4">Anggota</dt>
+                                <div class="col-1">:</div>
+                                <dd class="col-7">Ustadz Rusman (RT Arroyan)</dd>
+
+                                <p class="mt-3 col-12 h4">Pengurus</p>
+                                <dt class="col-4">Ketua Umum</dt>
+                                <div class="col-1">:</div>
+                                <dd class="col-7">Wina Pratiwi (RT Daqu Ketapang)</dd>
+                                <dt class="col-4">Ketua</dt>
+                                <div class="col-1">:</div>
+                                <dd class="col-7">Ustadz Jamaluddin Alghozi (RT Sholeh Mudzakkir)</dd>
+                                <dt class="col-4">Sekretaris Umum</dt>
+                                <div class="col-1">:</div>
+                                <dd class="col-7">H. Samsul Hadi, S.Sos. (RT Ulil Albab Nusantara)</dd>
+                                <dt class="col-4">Sekretaris</dt>
+                                <div class="col-1">:</div>
+                                <dd class="col-7">Ustadz Wahid Hasim (RT An-Najah)</dd>
+                                <dt class="col-4">Bendahara Umum</dt>
+                                <div class="col-1">:</div>
+                                <dd class="col-7">Noerhadi Prasetio (RT Darul Muhajirin)</dd>
+                                <dt class="col-4">Bendahara</dt>
+                                <div class="col-1">:</div>
+                                <dd class="col-7">Ambarwati (Pengajar & Relawan)</dd>
+
+                                <p class="mt-3 col-12 h4">Pengawas</p>
+                                <dt class="col-4">Ketua</dt>
+                                <div class="col-1">:</div>
+                                <dd class="col-7">Ustadz Yakhub (RT Barokatul Qur’an)</dd>
+                            </dl>
                         </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-2.jpg" alt="" class="img-fluid">
+                        <div class="col-lg-5 order-1 order-lg-2 text-center">
+                            <img src="<?= base_url('assets') ?>/img/konten/org.png" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -228,9 +243,7 @@
     <!-- ======= Visi Misi ======= -->
     <section id="about-boxes" class="about-boxes">
         <div class="container" data-aos="fade-up">
-
             <div class="row">
-
                 <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
                         <img src="<?= base_url('assets') ?>/img/konten/visi.png" class="card-img-top" alt="...">

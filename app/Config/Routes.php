@@ -70,6 +70,10 @@ $routes->get('/detailSantri/(:any)', 'Santri::getDataById/$1');
 $routes->post('/santri', 'Santri::tambahData');
 $routes->post('/santri/(:any)', 'Santri::editData/$1');
 
+$routes->get('/user', 'User::index');
+
+$routes->get('/donatur', 'Donatur::index');
+$routes->get('/donatur/(:any)', 'Donatur::hapusData/$1');
 
 /**
  * --------------------------------------------------------------------

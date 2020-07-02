@@ -18,6 +18,17 @@ $user = $db->table('user')
     ->getRowArray();
 ?>
 
+<!-- count user baru (status tidak aktif) -->
+<?php
+$role = $db->table('user')->select('id')->getWhere(['is_active' => 0])->getResultArray();
+$nrole = count($role);
+?>
+
+<!-- count donatur baru (belum terkonfirmasi) -->
+<?php
+$donatur = $db->table('donatur')->select('id')->getWhere(['is_confirm' => 0])->getResultArray();
+$ndonatur = count($donatur);
+?>
 
 <!DOCTYPE html>
 <!--
@@ -108,8 +119,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <i class="nav-icon <?= $m['icon']; ?>"></i>
                                         <p>
                                             <?= $m['title']; ?>
-                                            <?php if ($m['title'] == "User") : ?>
-                                                <span class="right badge badge-danger">New</span>
+                                            <?php if ($m['title'] == "User" && $nrole > 0) : ?>
+                                                <span class="right badge badge-danger">Aktifasi (<?= $nrole; ?>)</span>
                                             <?php endif; ?>
                                         </p>
                                         </a>
@@ -137,6 +148,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                         <a href="<?= base_url($u['url']) ?>" class="nav-link">
                                                         <?php endif; ?>
                                                         <i class="far <?= $u['icon']; ?> nav-icon"></i>
+                                                        <?php if ($u['title'] == "Data Donatur" && $ndonatur > 0) : ?>
+                                                            <span class="right badge badge-danger">New</span>
+                                                        <?php endif; ?>
                                                         <p><?= $u['title']; ?></p>
                                                         </a>
                                             </li>

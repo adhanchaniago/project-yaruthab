@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\PengurusModel;
 use App\Models\JabatanModel;
+use App\Models\RumahTahfidModel;
 
 class Pages extends BaseController
 {
@@ -11,6 +12,7 @@ class Pages extends BaseController
     {
         $this->model = new PengurusModel();
         $this->jabatan = new JabatanModel();
+        $this->rt = new RumahTahfidModel();
     }
     public function index()
     {
@@ -19,7 +21,8 @@ class Pages extends BaseController
             ->join('jabatan_pengurus', 'jabatan_pengurus.id = pengurus.id_jabatan')
             ->get()
             ->getResultArray();
-
+        $donatur = $this->db->table('donatur')->select('id')->getWhere(['is_confirm' => 1])->getResultArray();
+        $ndonatur = count($donatur);
         $data = [
             'title' => 'Yaruthab | Probolinggo',
             'pengurus' => $pengurus,
@@ -27,7 +30,7 @@ class Pages extends BaseController
             'nrt' => $this->db->table('rumah_tahfid')->countAllResults(),
             'nst' => $this->db->table('santri')->countAllResults(),
             'npg' => $this->db->table('pengajar')->countAllResults(),
-            // 'ndn' => $this->db->table('donatur')->countAllResults()
+            'ndn' => $ndonatur
 
         ];
         return view('frontend/index', $data);
@@ -44,7 +47,8 @@ class Pages extends BaseController
     public function rt()
     {
         $data = [
-            'title' => 'Rumah Tahfidz | Yaruthab'
+            'title' => 'Rumah Tahfidz | Yaruthab',
+            'rumahtahfid' => $this->rt->findAll(),
         ];
         return view('frontend/rt', $data);
     }

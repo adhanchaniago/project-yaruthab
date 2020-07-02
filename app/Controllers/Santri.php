@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\SantriModel;
-use App\Models\WaliSantrirModel;
 use App\Models\RumahTahfidModel;
 use App\Models\WaliSantriModel;
 
@@ -59,10 +58,14 @@ class Santri extends BaseController
             ];
             $this->model->insert($dataSantri);
         } else {
+            $no_hp =  $this->request->getVar('no');
+            if (substr($no_hp, 0, 1) == 0) {
+                $no_hp = "62" . substr($no_hp, 1);
+            }
             $dataWali = [
                 'nama' => $this->request->getVar('wali'),
                 'alamat' => trim($this->request->getVar('alamat')),
-                'no_hp' => $this->request->getVar('no')
+                'no_hp' => $no_hp
             ];
             $this->wali->insert($dataWali);
             $dataSantri = [

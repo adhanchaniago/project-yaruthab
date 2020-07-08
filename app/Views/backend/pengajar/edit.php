@@ -31,7 +31,7 @@
                 </div>
                 <div class="col">
                     <label for="gambar">Foto</label>
-                    <input type="file" class="dropify" name="gambar" id="gambar" data-height="95" data-max-file-size="2M" data-default-file="<?= base_url('assets'); ?>/img/uploads/profile/<?= $pengajar['img']; ?>" data-allowed-file-extensions="jpg jpeg png" />
+                    <input type="file" class="dropify" name="gambar" id="gambar" data-height="95" data-default-file="<?= base_url('assets'); ?>/img/uploads/profile/<?= $pengajar['img']; ?>" data-allowed-file-extensions="jpg jpeg png" />
                 </div>
             </div>
             <div class="form-group"></div>

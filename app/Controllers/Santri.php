@@ -19,6 +19,9 @@ class Santri extends BaseController
 
     public function index()
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $data = [
             'title' => 'Data Santri',
             'path' => 'Data Santri',
@@ -30,6 +33,9 @@ class Santri extends BaseController
 
     public function edit($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $santri = $this->getAllDataSantri($id);
         $data = [
             'title' => 'Edit Data Santri',
@@ -40,9 +46,38 @@ class Santri extends BaseController
         return view('backend/santri/edit', $data);
     }
 
+    public function excel()
+    {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
+        $data = [
+            'santri' => $this->getAllDataSantri(),
+            'rt' => $this->rt->findColumn('nama'),
+        ];
+
+        return view('backend/excel/santri', $data);
+    }
+
+    public function print()
+    {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
+        $data = [
+            'santri' => $this->getAllDataSantri(),
+            'rt' => $this->rt->findColumn('nama'),
+        ];
+
+        return view('backend/print/santri', $data);
+    }
+
     ####################################################### CRUD DATA ####################################################### 
     public function tambahData()
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         // 1. Cek apakah data wali santri sudah ada, berdasar nama dan nomor
         // 2. Jika ada ambil id, tambahkan ke data santri, jika tidak tambahkan data wali ke db 
         // 2. Input data santri
@@ -85,6 +120,9 @@ class Santri extends BaseController
 
     public function hapusData($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $this->hapusGambar($id);
         $idWali = $this->model->where('id', $id)->findColumn('wali_id');
         $IdWaliCount = $this->db->table('santri')->select('wali_id')->getWhere(['wali_id' => $idWali])->getResultArray();
@@ -98,6 +136,9 @@ class Santri extends BaseController
 
     public function editData($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $idWali = $this->request->getVar('id_wali');
         $dataWali = [
             'nama' => $this->request->getVar('wali'),
@@ -187,6 +228,9 @@ class Santri extends BaseController
 
     public function uploadGambar($id = null)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $file = $this->request->getFile('gambar');
         $img = $this->model->where('id', $id)->findColumn('img');
         if ($file->isValid()) {
@@ -194,6 +238,7 @@ class Santri extends BaseController
             if ($file->getName() != "profile.png") {
                 $namaFile = $file->getRandomName();
                 $file->move('./assets/img/uploads/profile', $namaFile);
+                $this->thumbnail($namaFile);
             } else {
                 $namaFile = "profile.png";
             }
@@ -209,9 +254,25 @@ class Santri extends BaseController
 
     public function hapusGambar($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $img = $this->model->where('id', $id)->findColumn('img');
         if ($img[0] != "profile.png") {
             unlink(FCPATH . '/assets/img/uploads/profile/' . $img[0]);
+            if (file_exists(FCPATH . '/assets/img/low/low_' . $img[0])) {
+                unlink(FCPATH . '/assets/img/low/low_' . $img[0]);
+            }
+            if (file_exists(FCPATH . '/assets/img/thumbnail/thumb_' . $img[0])) {
+                unlink(FCPATH . '/assets/img/thumbnail/thumb_' . $img[0]);
+            }
         }
+    }
+
+    public function thumbnail($file)
+    {
+        $this->image->withFile('./assets/img/uploads/profile/' . $file)
+            ->fit(250, 250, 'center')
+            ->save('./assets/img/thumbnail/thumb_' . $file);
     }
 }

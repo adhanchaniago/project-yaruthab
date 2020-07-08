@@ -36,6 +36,7 @@ $routes->get('/rt', 'Pages::rt');
 $routes->get('/pesantren', 'Pages::pesantren');
 $routes->get('/portofolio', 'Pages::portofolio');
 $routes->get('/doc', 'Pages::doc');
+$routes->get('/portfolio/(:num)', 'Pages::galeri/$1');
 
 $routes->get('/login', 'Auth::index');
 $routes->get('/register', 'Auth::register');
@@ -43,15 +44,16 @@ $routes->get('/admin', 'Pages::dashboard');
 $routes->get('/logout', 'Auth::logout');
 
 $routes->get('/rumahtahfid', 'RumahTahfidz::index');
+$routes->get('/rumahtahfid/print', 'RumahTahfidz::print');
 $routes->post('/rumahtahfid', 'RumahTahfidz::tambahData');
 $routes->get('/hrumahtahfid/(:any)', 'RumahTahfidz::hapusData/$1');
 $routes->post('/erumahtahfid/(:any)', 'RumahTahfidz::editData/$1');
 
 
 $routes->get('/pengajar', 'Pengajar::index');
-$routes->get('/pengajar/(:any)', 'Pengajar::edit/$1');
-$routes->get('/hpengajar/(:any)', 'Pengajar::hapusData/$1');
-$routes->post('/epengajar/(:any)', 'Pengajar::updateData/$1');
+$routes->get('/pengajar/(:num)', 'Pengajar::edit/$1');
+$routes->get('/hpengajar/(:num)', 'Pengajar::hapusData/$1');
+$routes->post('/epengajar/(:num)', 'Pengajar::updateData/$1');
 $routes->post('/pengajar', 'Pengajar::tambahData');
 
 $routes->get('/profile', 'Profile::index');
@@ -64,16 +66,24 @@ $routes->post('/epengurus/(:any)', 'Pengurus::editData/$1');
 $routes->get('/hpengurus/(:any)', 'Pengurus::hapusData/$1');
 
 $routes->get('/santri', 'Santri::index');
-$routes->get('/santri/edit/(:any)', 'Santri::edit/$1');
-$routes->get('/santri/(:any)', 'Santri::hapusData/$1');
-$routes->get('/detailSantri/(:any)', 'Santri::getDataById/$1');
+$routes->get('/santri/edit/(:num)', 'Santri::edit/$1');
+$routes->get('/santri/(:num)', 'Santri::hapusData/$1');
+$routes->get('/detailSantri/(:num)', 'Santri::getDataById/$1');
 $routes->post('/santri', 'Santri::tambahData');
-$routes->post('/santri/(:any)', 'Santri::editData/$1');
+$routes->post('/santri/(:num)', 'Santri::editData/$1');
 
 $routes->get('/user', 'User::index');
 
 $routes->get('/donatur', 'Donatur::index');
 $routes->get('/donatur/(:any)', 'Donatur::hapusData/$1');
+
+$routes->post('/kegiatan', 'Kegiatan::tambahData');
+$routes->post('/kegiatan/(:num)', 'Kegiatan::editData/$1');
+$routes->post('/kegiatan/upload/(:num)', 'Kegiatan::uploadGambar/$1');
+$routes->get('/kegiatan/galeri/(:num)', 'Kegiatan::galeri/$1');
+$routes->get('/kegiatan/(:num)', 'Kegiatan::hapusData/$1');
+$routes->get('/kegiatan/tampil/(:num)', 'Kegiatan::isTampil/$1');
+$routes->get('/kegiatan/hapus-foto/(:num)', 'Kegiatan::hapusFoto/$1');
 
 /**
  * --------------------------------------------------------------------

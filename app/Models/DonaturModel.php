@@ -8,5 +8,5 @@ class DonaturModel extends Model
 {
     protected $table = "donatur";
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama', 'alamat' . 'email', 'no_hp', 'is_confirm'];
+    protected $allowedFields = ['nama', 'alamat', 'email', 'no_hp', 'is_confirm'];
 }

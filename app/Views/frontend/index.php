@@ -27,7 +27,7 @@
             </ul>
         </nav><!-- .nav-menu -->
 
-        <a href="#MyModal" data-toggle="modal" data-target="#MyModal" class="get-started-btn scrollto"> <i class="icofont-basket"></i> Ya Store</a>
+        <a href="" data-toggle="modal" data-target="#MyModal" class="get-started-btn scrollto"> <i class="icofont-basket"></i> Ya Store</a>
 
     </div>
 </header>
@@ -52,7 +52,9 @@
     <!-- ======= About Section ======= -->
 
     <section id="about" class="about">
+
         <div class="container" data-aos="fade-up">
+
             <div class="row justify-content-end">
                 <div class="col-lg-11 col-md-11 col-sm-11">
                     <div class="row justify-content-end">
@@ -344,7 +346,16 @@
                         <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                     </p>
                 </div>
-
+            </div>
+            <div class="text-center mt-5 font-weight-light">
+                <small>
+                    <a href="" class="btn btn-outline-danger text-light">
+                        <small>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Katakan sesuatu tentang kami
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </small>
+                    </a>
+                </small>
             </div>
 
         </div>
@@ -429,95 +440,30 @@
                 <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
                         <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">App</li>
-                        <li data-filter=".filter-card">Card</li>
-                        <li data-filter=".filter-web">Web</li>
+                        <?php foreach ($kegiatan as $k) : ?>
+                            <li data-filter=".<?= $k['class']; ?>"><?= $k['class']; ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
 
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>App 1</h4>
-                        <p>App</p>
-                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                <?php foreach ($kegiatan as $k) : ?>
+                    <div class="col-lg-4 col-md-6 portfolio-item <?= $k['class']; ?>">
+                        <?php if (file_exists(FCPATH . "/assets/img/low/low_" . $k['img'])) : ?>
+                            <img src="<?= base_url('assets') ?>/img/low/low_<?= $k['img']; ?>" class="img-fluid" alt="<?= $k['nama']; ?>">
+                        <?php else : ?>
+                            <img src="<?= base_url('assets'); ?>/img/uploads/galeri/<?= $k['img']; ?>" class="img-fluid" alt="<?= $k['nama']; ?>">
+                        <?php endif; ?>
+                        <div class="portfolio-info">
+                            <h4><?= $k['nama']; ?></h4>
+                            <p><?= $k['class']; ?></p>
+                            <a href="<?= base_url('assets') ?>/img/uploads/galeri/<?= $k['img']; ?>" data-gall="portfolioGallery" class="venobox preview-link" title="<?= $k['nama']; ?>"><i class="bx bx-image"></i></a>
+                            <a href="<?= base_url('/portfolio'); ?>/<?= $k['id']; ?>" class="details-link" title="Details Kegiatan"><i class="bx bx-link"></i></a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Web 3</h4>
-                        <p>Web</p>
-                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>App 2</h4>
-                        <p>App</p>
-                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 2</h4>
-                        <p>Card</p>
-                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Web 2</h4>
-                        <p>Web</p>
-                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>App 3</h4>
-                        <p>App</p>
-                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 1</h4>
-                        <p>Card</p>
-                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>Card 3</h4>
-                        <p>Card</p>
-                        <a href="<?= base_url('assets') ?>/img/uploads/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-
+                <?php endforeach; ?>
             </div>
 
         </div>
@@ -537,20 +483,20 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="member" data-aos="fade-up" data-aos-delay="100">
                             <div class="pic">
-                                <img src="<?= base_url('assets') ?>/img/uploads/profile/<?= $p['img']; ?>" class="img-fluid" alt="">
+                                <img src="<?= base_url('assets') ?>/img/thumbnail/thumb_<?= $p['img']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="member-info">
                                 <h4><?= $p['nama']; ?></h4>
                                 <span><?= $p['jabatan']; ?></span>
                                 <div class="social">
                                     <?php if ($p['twitter']) : ?>
-                                        <a targer="blank" href="<?= $p['twitter']; ?>"><i class="icofont-twitter"></i></a>
+                                        <a target="blank" href="https://twitter.com/<?= $p['twitter']; ?>"><i class="icofont-twitter"></i></a>
                                     <?php endif; ?>
                                     <?php if ($p['facebook']) : ?>
-                                        <a targer="blank" href="<?= $p['facebook']; ?>"><i class="icofont-facebook"></i></a>
+                                        <a target="blank" href="https://facebook.com/<?= $p['facebook']; ?>"><i class="icofont-facebook"></i></a>
                                     <?php endif; ?>
                                     <?php if ($p['instagram']) : ?>
-                                        <a targer="blank" href="<?= $p['instagram']; ?>"><i class="icofont-instagram"></i></a>
+                                        <a target="blank" href="https://instagram.com/<?= $p['instagram']; ?>"><i class="icofont-instagram"></i></a>
                                     <?php endif; ?>
                                     <a targer="blank" href="mailto:<?= $p['email']; ?>"><i class="icofont-email"></i></a>
                                 </div>

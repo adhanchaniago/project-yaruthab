@@ -28,9 +28,9 @@
                                 <td><a href="" data-toggle="modal" data-id="<?= $p['id'] ?>" class="tombol-detail" data-target="#modalProfile"><?= $p['nama']; ?></a></td>
                                 <td> <?= $p['jabatan']; ?></td>
                                 <td class="text-center">
-                                    <a target="blank" href="<?= $p['facebook']; ?>" class="btn btn-sm btn-primary <?= $p['facebook'] == "" ? 'disabled' : ''; ?>"><i class="fab fa-facebook"></i></a>
-                                    <a target="blank" href="<?= $p['twitter']; ?>" class="btn btn-sm btn-info <?= $p['twitter'] == "" ? 'disabled' : ''; ?>"><i class="fab fa-twitter"></i></a>
-                                    <a target="blank" href="<?= $p['instagram']; ?>" class="btn btn-sm btn-primary <?= $p['instagram'] == "" ? 'disabled' : ''; ?>"><i class="fab fa-instagram"></i></a>
+                                    <a target="blank" href="https://facebook.com/<?= $p['facebook']; ?>" class="btn btn-sm btn-primary <?= $p['facebook'] == "" ? 'disabled' : ''; ?>"><i class="fab fa-facebook"></i></a>
+                                    <a target="blank" href="https://twitter.com/<?= $p['twitter']; ?>" class="btn btn-sm btn-info <?= $p['twitter'] == "" ? 'disabled' : ''; ?>"><i class="fab fa-twitter"></i></a>
+                                    <a target="blank" href="https://instagram.com/<?= $p['instagram']; ?>" class="btn btn-sm btn-primary <?= $p['instagram'] == "" ? 'disabled' : ''; ?>"><i class="fab fa-instagram"></i></a>
                                 </td>
                                 <td>
                                     <div class="row text-center">
@@ -106,8 +106,10 @@
                     <div class="form-group">
                         <label>SosMed</label>
                         <small class="text-danger">
-                            <i>* Isi dengan link dari profile sosial media jika ada.</i>
+                            <i>* Isi dengan <b>usernamenya saja</b> dari profile sosial media jika ada.</i>
                         </small>
+                        <img src="<?= base_url('assets/img/konten/nick.PNG'); ?>" alt="">
+                        <p></p>
                         <div class="row">
                             <div class="col-4">
                                 <input type="text" name="fb" id="fb" autocomplete="off" placeholder="facebook" class="form-control">
@@ -128,7 +130,7 @@
                         </div>
                         <div class="col">
                             <label for="gambar-i">Foto</label>
-                            <input type="file" class="dropify" name="gambar" id="gambar-i" data-height="95" data-max-file-size="2M" data-allowed-file-extensions="jpg jpeg png" />
+                            <input type="file" class="dropify" name="gambar" id="gambar-i" data-height="95" data-allowed-file-extensions="jpg jpeg png" />
                         </div>
                     </div>
                 </div>
@@ -240,7 +242,7 @@
         });
     });
     $('.tombol-tambah').on('click', function() {
-        $('.modal-title').html("Edit Data Pengurus");
+        $('.modal-title').html("Tambah Data Pengurus");
         $('#nama-i').val("");
         $('#jabatan-i').val("");
         $('#no-i').val("");
@@ -269,7 +271,7 @@
                 $('#alamat-d').html(data.alamat);
                 $('#email-d').html(data.email);
                 $('#img-d').attr('src',
-                    '<?= base_url('assets'); ?>/img/uploads/profile/' + data
+                    '<?= base_url('assets'); ?>/img/thumbnail/thumb_' + data
                     .img);
                 $("#wa-d").attr("href", "https://wa.me/" + data.no_hp);
                 if (data.facebook == "") {

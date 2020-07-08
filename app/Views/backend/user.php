@@ -2,6 +2,7 @@
 
 <?= $this->extend('layout/admintemplate'); ?>
 <?= $this->section('content'); ?>
+<?php helper('global'); ?>
 <div class="flash-data-success" data-flashdata="<?= session()->getFlashdata('success'); ?>"></div>
 <div class="row">
     <div class="col-12">
@@ -148,7 +149,7 @@
                                     </li>
                                     <li>
                                         <b class="text-muted text-sm">Register pada : </b>
-                                        <span class="text-muted text-sm" id="tgl-d"> Web Designer / UX / Graphic Artist / Coffee Lover </span>
+                                        <span class="text-muted text-sm" id="tgl-d"> ini tanggal </span>
                                     </li>
                                 </ul>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
@@ -183,10 +184,12 @@
 <script>
     $('.tombol-detail').on('click', function() {
         const id = $(this).data('id');
+        const tanggal = $(this).data('created_at');
         $.ajax({
             url: '<?= base_url('/user/getdatabyid'); ?>/' + id,
             data: {
-                id: id
+                id: id,
+                tanggal: tanggal
             },
             method: 'get',
             dataType: 'json',

@@ -13,7 +13,6 @@
                 <li><a href="#tentang">Rumah Tahfidz</a></li>
                 <li><a href="#syarat">Syarat Pengajar & RT</a></li>
                 <li><a href="#mitra">RT Mitra YARUTHAB</a></li>
-                <li><a href="#donasi">Donasi</a></li>
                 <li class="drop-down"><a href="">Lainnya</a>
                     <ul>
                         <li><a href="<?= base_url('/rt'); ?>">Rumah Tahfidz</a></li>
@@ -21,11 +20,12 @@
                         <li><a href="<?= base_url('/doc'); ?>">Formulir dan Dokumen lain</a></li>
                     </ul>
                 </li>
+                <li><a href="#donasi">Donasi</a></li>
 
             </ul>
         </nav><!-- .nav-menu -->
 
-        <a href="#about" class="get-started-btn scrollto"> <i class="icofont-basket"></i> Ya Store</a>
+        <a href="" data-toggle="modal" data-target="#MyModal" class="get-started-btn scrollto"> <i class="icofont-basket"></i> Ya Store</a>
 
     </div>
 </header>

@@ -17,8 +17,13 @@ class RumahTahfidz extends BaseController
         $this->session = session();
     }
 
+    ####################################################### VIEW CONTROL #######################################################
+
     public function index()
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $path = $this->db->table('user_sub_menu')
             ->select('path')->getWhere(['title' => 'Data rumah tahfidz'])->getRowArray();
         $data = [
@@ -29,13 +34,35 @@ class RumahTahfidz extends BaseController
         echo view('/backend/rumahTahfid', $data);
     }
 
-    public function getDataById($id)
+    public function excel()
     {
-        echo json_encode($this->model->find($id));
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
+        $data = [
+            'rumahtahfid' => $this->model->findAll(),
+        ];
+        return view('/backend/excel/rumahtahfidz', $data);
     }
+
+    public function print()
+    {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
+        $data = [
+            'rumahtahfid' => $this->model->findAll(),
+        ];
+        return view('/backend/print/rumahtahfidz', $data);
+    }
+
+    ####################################################### CRUD DATA #######################################################
 
     public function tambahData()
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $no_hp =  $this->request->getVar('no');
         if (substr($no_hp, 0, 1) == 0) {
             $no_hp = "62" . substr($no_hp, 1);
@@ -76,6 +103,9 @@ class RumahTahfidz extends BaseController
 
     public function editData($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $no_hp =  $this->request->getVar('no');
         if (substr($no_hp, 0, 1) == 0) {
             $no_hp = "62" . substr($no_hp, 1);
@@ -98,9 +128,17 @@ class RumahTahfidz extends BaseController
 
     public function hapusData($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $this->mengajar->where('id_rt', $id)->delete();
         $this->model->hapusData($id);
         $this->session->setFlashdata('success', 'Data berhasil di hapus');
         return redirect()->to('/rumahtahfid');
+    }
+
+    public function getDataById($id)
+    {
+        echo json_encode($this->model->find($id));
     }
 }

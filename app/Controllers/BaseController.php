@@ -43,6 +43,7 @@ class BaseController extends Controller
 		// E.g.:
 		$this->db = \Config\Database::connect();
 		$this->session = \Config\Services::session();
+		$this->image = \Config\Services::image();
 		helper(['form', 'url']);
 	}
 }

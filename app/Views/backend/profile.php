@@ -1,6 +1,9 @@
 <?= $this->extend('layout/adminTemplate'); ?>
 
 <?= $this->section('content'); ?>
+<?php helper('global');
+$created_at = longdate_indo(substr($user['created_at'], 0, 10));
+$updated_at = longdate_indo(substr($user['updated_at'], 0, 10)); ?>
 <div class="flash-data-success" data-flashdata="<?= session()->getFlashdata('success'); ?>"></div>
 <div class="row">
     <!-- PROFILE     -->
@@ -8,7 +11,7 @@
         <div class="card card-primary card-outline">
             <div class="card-body box-profile">
                 <div class="text-center">
-                    <img src="<?= base_url('assets/img/uploads/profile/'); ?>/<?= $user['img']; ?>" class="img-circle elevation-2" alt="User Image" width="120" height="120" style="object-fit:cover;">
+                    <img src="<?= base_url('assets/img/thumbnail/thumb_'); ?><?= $user['img']; ?>" class="img-circle elevation-2" alt="User Image" width="120" height="120" style="object-fit:cover;">
                 </div>
 
                 <h3 class="profile-username text-center mt-3">
@@ -25,10 +28,10 @@
                         <b>Nomor Handphone</b> <a class="float-right"><?= $user['no_hp']; ?></a>
                     </li>
                     <li class="list-group-item">
-                        <small><b>Terdaftar pada</b> <a class="float-right"><?= $user['created_at']; ?></a></small>
+                        <small><b>Terdaftar pada</b> <a class="float-right"><?= $created_at; ?></a></small>
                     </li>
                     <li class="list-group-item">
-                        <small><b>Terakhir diupdate pada</b> <a class="float-right"><?= $user['updated_at']; ?></a></small>
+                        <small><b>Terakhir diupdate pada</b> <a class="float-right"><?= $updated_at; ?></a></small>
                     </li>
                 </ul>
                 <!-- <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
@@ -97,7 +100,7 @@
                         <div class="row">
                             <div class="col">
                                 <label for="gambar">Foto</label>
-                                <input type="file" class="dropify" name="gambar" id="gambar" data-height="95" data-max-file-size="1M" data-allowed-file-extensions="jpg jpeg png" />
+                                <input type="file" class="dropify" name="gambar" id="gambar" data-height="95" data-allowed-file-extensions="jpg jpeg png" />
                             </div>
                         </div>
                     </div>

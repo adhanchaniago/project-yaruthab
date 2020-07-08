@@ -28,6 +28,9 @@ class Pengurus extends BaseController
 
     public function getDataById($id = null)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $pengurus = $this->db->table('pengurus')
             ->select('jabatan_pengurus.jabatan as jabatan, pengurus.*')
             ->join('jabatan_pengurus', 'jabatan_pengurus.id = pengurus.id_jabatan')
@@ -38,6 +41,9 @@ class Pengurus extends BaseController
 
     public function getDataPengurus($id = null)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         if (!$id) {
             $pengurus = $this->db->table('pengurus')
                 ->select('jabatan_pengurus.jabatan as jabatan, pengurus.*')
@@ -56,6 +62,9 @@ class Pengurus extends BaseController
 
     private function convertJabatanToJabatanId()
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $jabatan = $this->request->getVar('jabatan');
         $id = $this->jabatan->where('jabatan', $jabatan)->findColumn('id');
         return $id[0];
@@ -63,6 +72,9 @@ class Pengurus extends BaseController
 
     public function edit($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $data = [
             'title' => 'Edit Pengurus',
             'pengurus' => $this->getDataPengurus($id),
@@ -74,6 +86,9 @@ class Pengurus extends BaseController
 
     public function editData($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $data = [
             'nama' => $this->request->getVar('nama'),
             'alamat' => trim($this->request->getVar('alamat')),
@@ -102,6 +117,9 @@ class Pengurus extends BaseController
 
     public function tambahData()
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $no_hp =  $this->request->getVar('no');
         if (substr($no_hp, 0, 1) == 0) {
             $no_hp = "62" . substr($no_hp, 1);
@@ -127,14 +145,21 @@ class Pengurus extends BaseController
 
     public function hapusData($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $this->hapusGambar($id);
         $this->model->delete($id);
         $this->session->setFlashdata('success', 'Data berhasil di hapus');
         return redirect()->to('/pengurus');
     }
 
+    #################################################### GAMBAR #################################################### 
     public function uploadGambar($id = null)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $file = $this->request->getFile('gambar');
         $img = $this->model->where('id', $id)->findColumn('img');
         if ($file->isValid()) {
@@ -142,6 +167,7 @@ class Pengurus extends BaseController
             if ($file->getName() != "profile.png") {
                 $namaFile = $file->getRandomName();
                 $file->move('./assets/img/uploads/profile', $namaFile);
+                $this->thumbnail($namaFile);
             } else {
                 $namaFile = "profile.png";
             }
@@ -157,12 +183,27 @@ class Pengurus extends BaseController
 
     public function hapusGambar($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $img = $this->model->where('id', $id)->findColumn('img');
         if ($img[0] != "profile.png") {
             unlink(FCPATH . '/assets/img/uploads/profile/' . $img[0]);
+            if (file_exists(FCPATH . '/assets/img/low/low_' . $img[0])) {
+                unlink(FCPATH . '/assets/img/low/low_' . $img[0]);
+            }
+            if (file_exists(FCPATH . '/assets/img/thumbnail/thumb_' . $img[0])) {
+                unlink(FCPATH . '/assets/img/thumbnail/thumb_' . $img[0]);
+            }
         }
     }
 
+    public function thumbnail($file)
+    {
+        $this->image->withFile('./assets/img/uploads/profile/' . $file)
+            ->fit(750, 750, 'center')
+            ->save('./assets/img/thumbnail/thumb_' . $file);
+    }
     //--------------------------------------------------------------------
 
 }

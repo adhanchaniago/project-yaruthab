@@ -22,7 +22,7 @@
             </ul>
         </nav><!-- .nav-menu -->
 
-        <a href="#about" class="get-started-btn scrollto"> <i class="icofont-basket"></i> Ya Store</a>
+        <a href="" data-toggle="modal" data-target="#MyModal" class="get-started-btn scrollto"> <i class="icofont-basket"></i> Ya Store</a>
 
     </div>
 </header><!-- End Header -->

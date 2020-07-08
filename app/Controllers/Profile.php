@@ -15,6 +15,9 @@ class Profile extends BaseController
 
     public function index()
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $this->id = $this->session->get('id');
         $role = $this->db->table('user_role')
             ->select('user_role.role as role')
@@ -112,14 +115,19 @@ class Profile extends BaseController
         }
     }
 
+    ############################################## GAMBAR ############################################## 
     public function uploadGambar($id = null)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $file = $this->request->getFile('gambar');
         $img = $this->model->where('id', $id)->findColumn('img');
         if ($file->isValid()) {
             if ($file->getName() != "profile.png") {
                 $namaFile = $file->getRandomName();
                 $file->move('./assets/img/uploads/profile', $namaFile);
+                $this->thumbnail($namaFile);
             } else {
                 $namaFile = "profile.png";
             }
@@ -135,9 +143,39 @@ class Profile extends BaseController
 
     public function hapusGambar($id)
     {
+        if (!session()->get('username')) {
+            return redirect()->to('/login');
+        }
         $img = $this->model->where('id', $id)->findColumn('img');
         if ($img[0] != "profile.png") {
             unlink(FCPATH . '/assets/img/uploads/profile/' . $img[0]);
+            if (file_exists(FCPATH . '/assets/img/low/low_' . $img[0])) {
+                unlink(FCPATH . '/assets/img/low/low_' . $img[0]);
+            }
+            if (file_exists(FCPATH . '/assets/img/thumbnail/thumb_' . $img[0])) {
+                unlink(FCPATH . '/assets/img/thumbnail/thumb_' . $img[0]);
+            }
         }
+    }
+
+    public function compressImg($file)
+    {
+        $info =  $this->image->withFile('./assets/img/uploads/profile/' . $file)
+            ->getFile()
+            ->getProperties(true);
+
+        $xOffset = ($info['width'] / 10) - 25;
+        $yOffset = ($info['height'] / 10) - 25;
+
+        $this->image->withFile('./assets/img/uploads/profile/' . $file)
+            ->fit($xOffset, $yOffset, 'center')
+            ->save('./assets/img/low/low_' . $file);
+    }
+
+    public function thumbnail($file)
+    {
+        $this->image->withFile('./assets/img/uploads/profile/' . $file)
+            ->fit(250, 250, 'center')
+            ->save('./assets/img/thumbnail/thumb_' . $file);
     }
 }

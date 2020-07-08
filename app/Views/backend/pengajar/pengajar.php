@@ -7,7 +7,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><a href="<?= base_url(); ?>" data-toggle="modal" data-target="#tambahPG" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a> </h3>
+                <h3 class="card-title"><a href="<?= base_url(); ?>" data-toggle="modal" data-target="#tambahPG" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a></h3>
+                <div class="text-right">
+                    <a href="/pengajar/print" class="btn btn-outline-danger"><i class="fas fa-print"></i> Print Data</a>
+                    <a href="/pengajar/excel" class="btn btn-outline-success"><i class="fas fa-file-excel"></i> Export Excel</a>
+                </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -111,7 +115,7 @@
                         </div>
                         <div class="col">
                             <label for="gambar">Foto</label>
-                            <input type="file" class="dropify" name="gambar" id="gambar" data-height="95" data-max-file-size="2M" data-allowed-file-extensions="jpg jpeg png" />
+                            <input type="file" class="dropify" name="gambar" id="gambar" data-height="95" data-allowed-file-extensions="jpg jpeg png" />
                         </div>
                     </div>
                 </div>
@@ -214,7 +218,7 @@
                 $('#no-d').html(data.no_hp);
                 $('#alamat-d').html(data.alamat);
                 $('#img-d').attr('src',
-                    '<?= base_url('assets'); ?>/img/uploads/profile/' + data
+                    '<?= base_url('assets'); ?>/img/thumbnail/thumb_' + data
                     .img);
                 $("#wa-d").attr("href", "https://wa.me/" + data.no_hp);
             }

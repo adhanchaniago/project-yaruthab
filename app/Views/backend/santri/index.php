@@ -8,6 +8,10 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title"><a href="<?= base_url(); ?>" data-toggle="modal" data-target="#tambahPG" class="btn btn-primary tombol-tambah"><i class="fas fa-plus"></i> Tambah Data</a> </h3>
+                <div class="text-right">
+                    <a href="/santri/print" class="btn btn-outline-danger"><i class="fas fa-print"></i> Print Data</a>
+                    <a href="/santri/excel" class="btn btn-outline-success"><i class="fas fa-file-excel"></i> Export Excel</a>
+                </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -219,7 +223,7 @@
                 $('#tanggal-d').html(data.tgl_daftar);
                 $('#wali-d').html(data.ortu);
                 $('#img-d').attr('src',
-                    '<?= base_url('assets'); ?>/img/uploads/profile/' + data
+                    '<?= base_url('assets'); ?>/img/thumbnail/thumb_' + data
                     .img);
                 $("#wa-d").attr("href", "https://wa.me/" + data.no_hp);
             }

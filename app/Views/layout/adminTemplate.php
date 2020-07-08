@@ -58,6 +58,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url('vendor') ?>/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- FOR GALERI -->
+    <link href="<?= base_url('assets') ?>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets') ?>/css/style.css" rel="stylesheet">
+    <link href="<?= base_url('assets') ?>/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="<?= base_url('assets') ?>/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 
 </head>
 
@@ -97,7 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url('assets') ?>/img/uploads/profile/<?= $user['img']; ?>" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?= base_url('assets') ?>/img/thumbnail/thumb_<?= $user['img']; ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="<?= base_url('/profile') ?>" class="d-block"><?= $user['nama']; ?></a>
@@ -220,7 +225,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
+    <!-- Vendor JS Files -->
 
+
+    <!-- Template Main JS File -->
     <!-- jQuery -->
     <script src="<?= base_url('vendor') ?>/adminlte/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
@@ -236,7 +244,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url('assets'); ?>/js/sweetalert2.all.min.js"></script>
     <script src="<?= base_url('assets'); ?>/js/myscript.js"></script>
     <!-- dropify -->
-    <script src="<?= base_url('assets'); ?>/js/dropify.js"></script>
+    <script src="<?= base_url('assets') ?>/js/dropify.js"></script>
+
+
     <script>
         const menu = document.getElementsByClassName('has-treeview');
         for (let i = 0; i < menu.length; i++) {

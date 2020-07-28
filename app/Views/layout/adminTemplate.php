@@ -23,6 +23,11 @@ $user = $db->table('user')
 $role = $db->table('user')->select('id')->getWhere(['is_active' => 0])->getResultArray();
 $nrole = count($role);
 ?>
+<!-- count testimoni -->
+<?php
+$testi = $db->table('testimoni')->select('id')->getWhere(['is_confirm' => 0])->getResultArray();
+$ntesti = count($testi);
+?>
 
 <!-- count donatur baru (belum terkonfirmasi) -->
 <?php
@@ -53,6 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="<?= base_url('vendor') ?>/adminlte/dist/css/adminlte.min.css">
     <!-- dropify -->
     <link rel="stylesheet" href="<?= base_url('assets') ?>/css/dropify.css">
+    <link rel="stylesheet" href="<?= base_url('assets') ?>/css/style.css">
     <!-- Select2 -->
     <link rel="stylesheet" href="<?= base_url('vendor') ?>/adminlte/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="<?= base_url('vendor') ?>/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -125,7 +131,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <p>
                                             <?= $m['title']; ?>
                                             <?php if ($m['title'] == "User" && $nrole > 0) : ?>
-                                                <span class="right badge badge-danger">Aktifasi (<?= $nrole; ?>)</span>
+                                                <span class="right badge badge-danger">New (<?= $nrole; ?>)</span>
+                                            <?php endif; ?>
+                                            <?php if ($m['title'] == "Testimoni" && $ntesti > 0) : ?>
+                                                <span class="right badge badge-danger">New (<?= $ntesti; ?>)</span>
                                             <?php endif; ?>
                                         </p>
                                         </a>
@@ -245,6 +254,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?= base_url('assets'); ?>/js/myscript.js"></script>
     <!-- dropify -->
     <script src="<?= base_url('assets') ?>/js/dropify.js"></script>
+    <!-- chartjs -->
+    <script src="<?= base_url('vendor') ?>/adminlte/plugins/chart.js/Chart.min.js"></script>
 
 
     <script>

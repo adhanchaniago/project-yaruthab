@@ -11,6 +11,8 @@
                     </div>
 
                     <form class="user" method="post" action=<?= base_url('auth/register'); ?>>
+                        <?= csrf_field(); ?>
+
                         <p class="h6 ml-2">Data Akun</p>
 
                         <!-- INPUT USERNAME -->

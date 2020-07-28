@@ -2,6 +2,7 @@
 
 <?= $this->section('nav'); ?>
 <header id="header" class="fixed-top ">
+    <div class="flash-data-success" data-flashdata="<?= session()->getFlashdata('success'); ?>"></div>
     <div class="container-fluid d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center justify-content-start">
             <h1 class="logo"><a href="<?= base_url('/'); ?>">Yaruthab</a></h1>
@@ -19,8 +20,9 @@
                 <li class="drop-down"><a href="">Lainnya</a>
                     <ul>
                         <li><a href="<?= base_url('/rt'); ?>">Rumah Tahfidz</a></li>
-                        <li><a href="<?= base_url('/pesantren'); ?>">Pesantren Tahfidz Tahafudzlil Qur'an Hamalatul Qur'an </a></li>
+                        <li><a href="<?= base_url('/pesantren'); ?>">Pesantren Tahafudzlil Qur'an Hamalatul Qur'an </a></li>
                         <li><a href="<?= base_url('/doc'); ?>">Formulir dan Dokumen lain</a></li>
+                        <li><a href="<?= base_url('/login'); ?>">Login</a></li>
                     </ul>
                 </li>
 
@@ -71,7 +73,7 @@
                             <div class="count-box">
                                 <i class="icofont-learn"></i>
                                 <span data-toggle="counter-up"><?= $nst; ?></span>
-                                <p>Santri</p>
+                                <p class="ml-1">Santri</p>
                             </div>
                         </div>
 
@@ -90,7 +92,6 @@
                                 <p>Donatur</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -105,6 +106,12 @@
             <div class="section-title">
                 <h2>Perkenalkan</h2>
                 <p>Tentang Kami</p>
+            </div>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h3 class="display-6">Yayasan Rumah Tahfidz Probolinggo </h3>
+                    <p class="lead"> Adalah sebuah Yayasan yang berkhidmat untuk kemaslahatan ummat, terutama dibidang pendidikan Al-Qur’an khususnya pada Tahfidzul Qur’an (menghafal Al-Qur’an) dan tujuan lainnya di bidang sosial dan kemanusiaan dalam rangka mendukung terwujudnya masyarakat yang hafal Al-Qur’an, memahami dan mengamalkan nilai-nilai kandungan Al-Qur’an</p>
+                </div>
             </div>
             <ul class="nav nav-tabs row d-flex">
                 <li class="nav-item col-4">
@@ -132,24 +139,20 @@
                     <div class="row">
 
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Pendirian Yaruthab</h3>
+                            <h3>Latar Belakang</h3>
                             <p>
-                                Yayasan Rumah Tahfidz Probolinggo atau disebut Yaruthab, adalah sebuah Yayasan yang berbadan hukum dan terdaftar di Kementerian Hukum dan HAM yang berkhidmat untuk kemaslahatan ummat, terutama dibidang pendidikan Al-Qur’an khususnya pada Tahfidzul Qur’an (menghafal Al-Qur’an).
+                                Rumah Tahfidz merupakan suatu program untuk gerakan mencetak para penghafal Al Qur’an di masyarakat, tujuannya adalah menumbuhkan motivasi masyarakat untuk menjadi penghafal Qur’an di lingkungan masing-masing.
                             </p>
 
                             <p>
-                                Yayasan ini berdiri atas inisiatif para pengurus dan pengajar rumah tahfidz di Kota dan Kabupaten Probolinggo.
+                                Dalam perkembangan sejak pertama kali dikenalkan pada tahun 2012 jumlah Rumah Tahfidz di Kota dan Kabupaten Probolinggo jumlahnya terus bertambah, hinga mencapai ± 85 Rumah Tahfidz di akhir tahun 2016. Sebagai wadah komunikasi dan untuk mengkordinasi kegiatan Rumah Tahfidz yang bersebar di Kota dan Kabupaten Probolinggo yaitu “FORUM KOMUNIKASI RUMAH TAHFIDZ PROBOLINGGO”.
                             </p>
                             <p>
-                                Yayasan siap bersinergi dan bekerjasama dengan semua pihak baik lembaga, instansi, perusahaan ataupun perseorangan yang mempunyai itikad baik untuk mewujudkan Visi dan Misi tersebut, serta menempuh berbagai cara untuk menjaga semangat para penghafal Qur’an dengan mencari metode yang tepat, memfasilitasi kenyamanan dalam menghafal, mensejahterakan para pengajar tahfidz, mengadakan kegiatan yang menunjang dan menumbuhkan semangat menghafal santri.
-                            </p>
-                            <p>
-                                Perjuangan ini membutuhkan pengorbanan yang tidak sedikit, baik berupa tenaga, fikiran bahkan materiil.
-                                Perjuangan ini akan menjadi lebih mudah jika Kita semua men-sedekah-kan fikiran, ilmu, tenaga, dan sebagian harta kita, tentunya sesuai dengan kemampuan Kita. Ini akan menjadi ladang amal jariyah Kita yang akan Kita tuai di akhirat kelak, amiin.
-                                <blockquote class="blockquote">
-                                    “Barang siapa yang membantu urusan Allah, niscaya Allah akan membantu urusannya”.
-                                </blockquote>
+                                Seiring dengan waktu, jumlah Rumah Tahfidz dan Santri yang semakin banyak memerlukan kordinasi yang lebih bagus agar kegiatan yang dilakukan menjadi efektif, serta tetap menjaga dan memelihara semangat menghafal Al Qur’an tetap menyala dilingkungan Rumah Tahfidz dan juga komponen Rumah Tahfidz yaitu pengajar, santri, pengurus dan masyarakat sekitar.
 
+                            </p>
+                            <p>
+                                Melalui serangkaian musyawarah dan ide beberapa komponen Rumah Tahfidz dengan mempertimbangkan tujuan jangka panjang organisasi “Forum” maka disepakati untuk membuat sebuah “Yayasan” sehingga tujuan dan peran menjadi optimal, kerjasama antar lembaga dengan pihak lain menjadi lebih jelas jika dibandingkan dengan sebuah “Forum”. Sehingga pada akhirnya dibuat Akta Notaris beserta pengesahan dari Kementerian Hukum & HAM untuk mendirikan suatu badan hukum pada tanggal 24 Maret 2017 dengan nama “YAYASAN RUMAH TAHFIDZ PROBOLINGGO” atau disingkat dengan “YARUTHAB”.
                             </p>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -286,72 +289,24 @@
         <div class="container" data-aos="zoom-in">
 
             <div class="owl-carousel testimonials-carousel">
-
-                <div class="testimonial-item">
-                    <img src="<?= base_url('assets') ?>/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                    <h3>Saul Goodman</h3>
-                    <h4>Ceo &amp; Founder</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium
-                        quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="<?= base_url('assets') ?>/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                    <h3>Sara Wilsson</h3>
-                    <h4>Designer</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
-                        quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="<?= base_url('assets') ?>/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor
-                        labore quem eram duis noster aute amet eram fore quis sint minim.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="<?= base_url('assets') ?>/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                    <h3>Matt Brandon</h3>
-                    <h4>Freelancer</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim
-                        dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
-
-                <div class="testimonial-item">
-                    <img src="<?= base_url('assets') ?>/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                    <h3>John Larson</h3>
-                    <h4>Entrepreneur</h4>
-                    <p>
-                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
-                        labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                    </p>
-                </div>
+                <?php foreach ($testimoni as $t) : ?>
+                    <div class="testimonial-item">
+                        <img src="<?= base_url('assets') ?>/img/uploads/testimoni/<?= $t['img']; ?>" class="testimonial-img" alt="<?= $t['nama']; ?>">
+                        <h3><?= $t['nama']; ?></h3>
+                        <h4><?= $t['status']; ?></h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            <?= $t['testimoni']; ?>
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                <?php endforeach; ?>
             </div>
             <div class="text-center mt-5 font-weight-light">
                 <small>
-                    <a href="" class="btn btn-outline-danger text-light">
+                    <a href="" data-toggle="modal" data-target="#tambah" class="btn btn-outline-danger text-light">
                         <small>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>Katakan sesuatu tentang kami
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i> Katakan sesuatu tentang kami
                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                         </small>
                     </a>
@@ -508,4 +463,52 @@
 
         </div>
     </section><!-- End Team Section -->
+
+    <!-- Modal tambah data -->
+    <div class="modal fade" id="tambah" tabindex="-1" role="dialog">
+        <div class="container">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title ml-5" id="exampleModalLabel"><i class="icofont-pencil-alt-2"></i> Tuliskan testimoni tentang kami. </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="<?= base_url('/testimoni'); ?>" method="post" enctype="multipart/form-data">
+                        <?= csrf_field(); ?>
+                        <div class="modal-body">
+                            <div class="row  justify-content-center">
+                                <div class="col-10">
+                                    <div class="form-group">
+                                        <label for="nama-i">Nama</label>
+                                        <input type="text" class="form-control" name="nama" id="nama-i" placeholder="Masukkan nama Anda" required autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pj-i">Status</label>
+                                        <input type="text" class="form-control" name="status" id="pj-i" placeholder="Ex : Donatur, Santri, Pengurus, dll" required autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tgl-i">Foto</label>
+                                        <input type="file" class="dropify" name="gambar" id="gambar" data-height="120" data-allowed-file-extensions="jpg jpeg png" />
+                                        <small class="text-danger mt-n2"><i>** Pastikan foto memiliki posisi objek di tengah, agar testimoni Anda dapat kami tampilkan</i></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deskripsi-i"><b>Testimoni</b></label>
+                                        <textarea name="testimoni" class="form-control" id="deskripsi-i" rows="5"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary float-right"><i class="icofont-paper-plane"></i> Kirim</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <small class="m-auto">Harap isi dengan data yang valid!</small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal tambah data -->
     <?= $this->endSection(); ?>

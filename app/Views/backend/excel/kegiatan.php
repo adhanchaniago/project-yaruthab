@@ -1,7 +1,7 @@
 <?php
 $mydate = getdate(date("U"));
 header("content-type:application/vnd-ms-excel");
-header("content-disposition:attachment; filename = data kegiatan yaruthab" . "$mydate[mday]- $mydate[month]- $mydate[year]" . ".xls");
+header("content-disposition:attachment; filename = data-kegiatan-yaruthab-" . "$mydate[mday]- $mydate[month]- $mydate[year]" . ".xls");
 helper('global');
 ?>
 <!DOCTYPE html>

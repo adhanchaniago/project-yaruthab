@@ -36,11 +36,12 @@ $routes->get('/rt', 'Pages::rt');
 $routes->get('/pesantren', 'Pages::pesantren');
 $routes->get('/portofolio', 'Pages::portofolio');
 $routes->get('/doc', 'Pages::doc');
+$routes->get('/checkout', 'Pages::checkout');
 $routes->get('/portfolio/(:num)', 'Pages::galeri/$1');
 
 $routes->get('/login', 'Auth::index');
 $routes->get('/register', 'Auth::register');
-$routes->get('/admin', 'Pages::dashboard');
+$routes->get('/admin', 'Dashboard::index');
 $routes->get('/logout', 'Auth::logout');
 
 $routes->get('/rumahtahfid', 'RumahTahfidz::index');
@@ -75,15 +76,29 @@ $routes->post('/santri/(:num)', 'Santri::editData/$1');
 $routes->get('/user', 'User::index');
 
 $routes->get('/donatur', 'Donatur::index');
-$routes->get('/donatur/(:any)', 'Donatur::hapusData/$1');
+$routes->get('/donatur/detail', 'Donatur::donasi');
+$routes->get('/donatur/(:num)', 'Donatur::hapusData/$1');
+$routes->get('/donatur/donasi/(:num)', 'Donatur::hapusDonasi/$1');
+$routes->get('/donatur/konfirmasi/(:num)', 'Donatur::konfirmasi/$1');
+$routes->post('/donasi/add', 'Donatur::tambahDonasi');
+$routes->post('/donasi/barang', 'Donatur::tambahDonasiBarang');
 
 $routes->post('/kegiatan', 'Kegiatan::tambahData');
+$routes->post('/kegiatan/print', 'Kegiatan::print');
 $routes->post('/kegiatan/(:num)', 'Kegiatan::editData/$1');
 $routes->post('/kegiatan/upload/(:num)', 'Kegiatan::uploadGambar/$1');
 $routes->get('/kegiatan/galeri/(:num)', 'Kegiatan::galeri/$1');
 $routes->get('/kegiatan/(:num)', 'Kegiatan::hapusData/$1');
 $routes->get('/kegiatan/tampil/(:num)', 'Kegiatan::isTampil/$1');
 $routes->get('/kegiatan/hapus-foto/(:num)', 'Kegiatan::hapusFoto/$1');
+
+$routes->get('/testimoni/(:num)', 'Testimoni::hapusData/$1');
+$routes->post('/testimoni/', 'Testimoni::tambahData');
+
+$routes->get('/keuangan', 'Keuangan::index');
+$routes->get('/keuangan/(:num)', 'Keuangan::hapus/$1');
+$routes->post('/keuangan/income', 'Keuangan::tambahIncome');
+$routes->post('/keuangan/outcome', 'Keuangan::tambahOutcome');
 
 /**
  * --------------------------------------------------------------------

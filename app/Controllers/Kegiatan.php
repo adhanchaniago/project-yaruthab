@@ -61,6 +61,19 @@ class Kegiatan extends BaseController
         // dd($data['kegiatan']);
         return view('backend/excel/kegiatan', $data);
     }
+    public function print()
+    {
+        $foto = $this->db->table('kegiatan')
+            ->select('foto_kegiatan.img as gambar')
+            ->join('foto_kegiatan', 'kegiatan.id = foto_kegiatan.id_kegiatan')
+            ->get()->getResultArray();
+        $data = [
+            'kegiatan' => $this->model->findAll()
+        ];
+        // dd($data['kegiatan']);
+        // dd($data['kegiatan']);
+        return view('backend/print/kegiatan', $data);
+    }
 
     ####################################################### CRUD DATA #######################################################
 

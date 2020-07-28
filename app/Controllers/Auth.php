@@ -135,11 +135,11 @@ class Auth extends BaseController
                 $hashPassword = password_hash($password, PASSWORD_DEFAULT);
                 # STORE DATA INPUTAN DALAM VARIABEL $dataUser
                 $dataUser = [
-                    'username' => $this->request->getPost('username'),
+                    'username' => htmlspecialchars($this->request->getPost('username')),
                     'password' => $hashPassword,
                     'role_id' => 2,
-                    'nama' => $this->request->getPost('nama'),
-                    'no_hp' => $this->request->getPost('no_hp'),
+                    'nama' => htmlspecialchars($this->request->getPost('nama')),
+                    'no_hp' => htmlspecialchars($this->request->getPost('no_hp')),
                     'is_active' => 0,
                     'img' => 'profile.png'
                 ];

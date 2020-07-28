@@ -16,7 +16,10 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+    <!-- dropify -->
+    <link rel="stylesheet" href="<?= base_url('assets') ?>/css/dropify.css">
     <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="<?= base_url('vendor') ?>/adminlte/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url('assets') ?>/vendor/datatables/css/dataTables.bootstrap4.css">
     <link href="<?= base_url('assets') ?>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url('assets') ?>/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -55,9 +58,34 @@
         </div>
 
         <div class="row">
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <form action="" method="" role="form" class="php-email-form text-center">
+                    <h3>Donasi untuk YARUTHAB</h3>
+                    <p>Anda juga dapat berdonasi dengan menghubungi kontak yang tersedia, atau melalui kantor kami</p>
+                    <a href="" data-toggle="modal" data-target="#donasiModal" class="btn btn-lg btn-primary"><i class="fas fa-hand-holding-heart"></i> Donasi Sekarang</a>
+                    <div class="mt-4 text-left">
+                        <h4>Rekening kami</h4>
+                        <div class="bank">
+                            <img src="<?= base_url('/assets/img/bank/mandiri.jpg'); ?>" alt="mandiri syariah">
+                            <span>710-7835-808 (kode bank 451)</span>
+                        </div>
+                        <div class="bank">
+                            <img src="<?= base_url('/assets/img/bank/bri.png'); ?>" alt="bank bri">
+                            <span>0073-01-025084-53-3 (kode bank 002)</span>
+                        </div>
+                        <div class="bank">
+                            <img src="<?= base_url('/assets/img/bank/muamalat.jpeg'); ?>" alt="bank muamalat">
+                            <span>713-0011395 (kode bank 147)</span>
+                        </div>
+                        <div class="bank">
+                            <img src="<?= base_url('/assets/img/bank/jatim.jpg'); ?>" alt="bank jatim">
+                            <span>0123-662113 (kode bank 114)</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
             <div class="col-lg-6">
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="info-box">
@@ -90,38 +118,7 @@
                         </a>
                     </div>
                 </div>
-
             </div>
-
-            <div class="col-lg-6 mt-4 mt-lg-0">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                    <div class="form-row">
-                        <div class="col-md-5 form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                            <div class="validate"></div>
-                        </div>
-                        <div class="col-md-5 form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                            <div class="validate"></div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                        <div class="validate"></div>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                        <div class="validate"></div>
-                    </div>
-                    <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                    </div>
-                    <div class="text-center"><button type="submit">Send Message</button></div>
-                </form>
-            </div>
-
         </div>
 
         </div>
@@ -160,9 +157,9 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/ -->
-                Designed by <a href="">Dewi-BootstrapMade</a>
+                <!-- Designed by <a href="">Dewi-BootstrapMade</a>
                 <br>
-                Developed by <a href="https://nrdnisml.github.io" target="blank">@nrdnisml</a>
+                Developed by <a href="https://nrdnisml.github.io" target="blank">@nrdnisml</a> -->
             </div>
         </div>
     </footer><!-- End Footer -->
@@ -196,6 +193,59 @@
         </div>
     </div>
 
+    <div class="modal fade" id="donasiModal" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="container">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title ml-5" id="exampleModalLabel"><i class="icofont-pencil-alt-2"></i> Mohon isi data diri Anda (data donatur)</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="<?= base_url('/donasi/add'); ?>" method="post" enctype="multipart/form-data">
+                        <?= csrf_field(); ?>
+                        <div class="modal-body">
+                            <div class="row  justify-content-center">
+                                <div class="col-10">
+                                    <div class="form-group">
+                                        <label for="nama-i">Nama</label>
+                                        <input type="text" class="form-control" name="nama" id="nama-i" placeholder="Masukkan nama Anda" required autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="nominal-i">Nominal Donasi</label>
+                                        <input type="number" class="form-control" name="nominal" id="nominal-i" placeholder="Rp. " required autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email-i">E-mail</label>
+                                        <input type="email" class="form-control" name="email" id="email-i" placeholder="someone@example.com">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="no-i">No. Handphone / whatsapp</label>
+                                        <input type="number" class="form-control" name="no_hp" id="no-i" required autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="alamat-i"><b>Alamat</b></label>
+                                        <textarea name="alamat" class="form-control" id="alamat-i" rows="5"></textarea>
+                                    </div>
+                                    <input type="hidden" name="konfirmasi" value="0">
+                                    <button type="submit" class="btn btn-primary float-right"><i class="icofont-paper-plane"></i> Selanjutnya</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <small class="m-auto">Harap isi dengan data yang valid</small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Vendor JS Files -->
     <script src="<?= base_url('assets') ?>/vendor/jquery/jquery.min.js"></script>
     <script src="<?= base_url('assets') ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -211,6 +261,11 @@
     <script src="<?= base_url('assets') ?>/vendor/datatables/js/dataTables.bootstrap4.js"></script>
     <script src="<?= base_url('assets') ?>/js/popper.js"></script>
     <script src="<?= base_url('assets') ?>/js/main.js"></script>
+    <!-- sweetalert -->
+    <script src="<?= base_url('assets'); ?>/js/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/js/myscript.js"></script>
+    <!-- dropify -->
+    <script src="<?= base_url('assets') ?>/js/dropify.js"></script>
     <!-- Template Main JS File -->
     <script>
         $(function() {
@@ -222,6 +277,15 @@
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
+            });
+            $('.dropify').dropify({
+                error: {
+                    'fileSize': 'Ukuran file terlalu besar. ({{ value }} max).',
+                    'fileExtension': 'Format hanya diperbolehkan ({{ value }}).'
+                },
+                messages: {
+                    'default': '',
+                }
             });
         });
     </script>

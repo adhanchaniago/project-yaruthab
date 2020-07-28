@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\PengurusModel;
 use App\Models\JabatanModel;
 use App\Models\RumahTahfidModel;
+use App\Models\TestimoniModel;
 
 class Pages extends BaseController
 {
@@ -13,6 +14,7 @@ class Pages extends BaseController
         $this->model = new PengurusModel();
         $this->jabatan = new JabatanModel();
         $this->rt = new RumahTahfidModel();
+        $this->testimoni = new TestimoniModel();
     }
     public function index()
     {
@@ -40,7 +42,8 @@ class Pages extends BaseController
             'nst' => $this->db->table('santri')->countAllResults(),
             'npg' => $this->db->table('pengajar')->countAllResults(),
             'ndn' => $ndonatur,
-            'kegiatan' => $kegiatan->getResultArray()
+            'kegiatan' => $kegiatan->getResultArray(),
+            'testimoni' => $this->testimoni->where('is_confirm = 1')->findAll()
 
         ];
         return view('frontend/index', $data);
@@ -92,24 +95,21 @@ class Pages extends BaseController
         return view('frontend/doc', $data);
     }
 
-    public function dashboard()
+
+    public function checkout()
     {
-        $data = [
-            'title' => 'Dashboard',
-            'path' => 'Dashboard'
+        if (!session()->get('nama')) {
+            return redirect()->to('/');
+        }
+        $donatur = $this->db->table('donatur')->select('*')->orderBy('id', 'DESC')->limit(1)->get()->getRow();
+        $uang = $this->db->table('donasi_uang')->select('nominal')->orderBy('id', 'DESC')->limit(1)->get()->getRow();
+        $data  = [
+            'title' => 'Checkout | Yaruthab',
+            'donatur' => $donatur,
+            'uang' => $uang,
         ];
 
-        return view('backend/dashboard', $data);
-    }
-
-
-    public function pengurus()
-    {
-        $data = [
-            'title' => 'Pengurus'
-        ];
-
-        return view('layout/admintemplate', $data);
+        return view('frontend/checkout', $data);
     }
 
     //--------------------------------------------------------------------

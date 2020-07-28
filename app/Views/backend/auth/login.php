@@ -20,6 +20,7 @@
                                 <!-- <h1></h1> -->
                             </div>
                             <form class="user" method='post' action="<?= base_url('Auth'); ?>">
+                                <?= csrf_field(); ?>
                                 <div class="form-group">
                                     <?php if (isset($validation) && $validation->showError('username')) : ?>
                                         <input type="text" name="username" class="form-control form-control-user is-invalid" id="username" aria-describedby="emailHelp" value="<?= set_value('username'); ?>" placeholder="Username" autocomplete="off">

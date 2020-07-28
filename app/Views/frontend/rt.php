@@ -61,18 +61,7 @@
                         <div class="icon-box" id="rt-ico">
                             <i class="icofont-building-alt"></i>
                             <h4>Rumah Thafidz</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, commodi officia
-                                itaque
-                                recusandae quaerat labore? Laborum, voluptas fugit odio esse assumenda eius numquam
-                                facere deleniti corporis, quasi aliquam cupiditate eum reiciendis, cum ea voluptatum
-                                soluta. Quam reprehenderit explicabo quia, laudantium ratione laboriosam quis
-                                excepturi
-                                eum. Iste minus non modi at corporis beatae reiciendis voluptas libero est, culpa
-                                adipisci unde quaerat hic dicta, ex dolorem, ab aliquid harum sapiente inventore
-                                suscipit. Amet dicta quos reiciendis, nemo non nisi quibusdam expedita nobis
-                                consequatur
-                                hic deleniti omnis quasi eius! Alias veritatis mollitia enim deleniti nostrum eos
-                                laudantium numquam eligendi delectus, pariatur officiis sapiente!</p>
+                            <p>Rumah Tahfidz merupakan suatu program untuk gerakan mencetak para penghafal Al Qur’an di masyarakat, tujuannya adalah menumbuhkan motivasi masyarakat untuk menjadi penghafal Qur’an di lingkungan masing-masing.</p>
                         </div>
                     </div>
                 </div>
@@ -90,16 +79,28 @@
                 <p>Pengajar & Rumah Tahfidz</p>
             </div>
             <ul class="nav nav-tabs row d-flex">
-                <li class="nav-item col-6">
+                <li class="nav-item col-3">
                     <a class="nav-link active show" data-toggle="tab" href="#tab-1">
                         <i class="ri-home-heart-fill"></i>
-                        <h4 class="d-lg-block">Rumah Tahfidz</h4>
+                        <h4 class="d-none d-lg-block">Syarat pendirian RT</h4>
                     </a>
                 </li>
-                <li class="nav-item col-6">
+                <li class="nav-item col-3">
                     <a class="nav-link" data-toggle="tab" href="#tab-2">
                         <i class="ri-user-heart-fill"></i>
-                        <h4 class="d-lg-block">Pengajar/Asatidz</h4>
+                        <h4 class="d-none d-lg-block">Syarat Asatidz</h4>
+                    </a>
+                </li>
+                <li class="nav-item col-3">
+                    <a class="nav-link" data-toggle="tab" href="#tab-3">
+                        <i class="ri-home-smile-2-line"></i>
+                        <h4 class="d-none d-lg-block">Pengurus RT</h4>
+                    </a>
+                </li>
+                <li class="nav-item col-3">
+                    <a class="nav-link" data-toggle="tab" href="#tab-4">
+                        <i class="ri-user-5-fill"></i>
+                        <h4 class="d-none d-lg-block">Santri</h4>
                     </a>
                 </li>
 
@@ -111,32 +112,17 @@
 
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
                             <h3>Syarat pendirian rumah tahfidz</h3>
-                            <p class="font-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et
-                                dolore
-                                magna aliqua.
-                            </p>
                             <ul>
-                                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat.</li>
-                                <li><i class="ri-check-double-line
-                      "></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat. Duis
-                                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro
-                                    dolore eu fugiat nulla
-                                    pariatur.</li>
+                                <li><i class="ri-check-double-line"></i> Tempat untuk proses belajar mengajar
+                                </li>
+                                <li><i class="ri-check-double-line"></i> Pengelola/pengurus
+                                </li>
+                                <li><i class="ri-check-double-line"></i> Guru tahfidz/Asatidz
+                                </li>
+                                <li><i class="ri-check-double-line"></i> Santri yang belajar
+                                </li>
                             </ul>
-                            <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in
-                                voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                                non proident,
-                                sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
-                            </p>
+
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
                             <img src="<?= base_url('assets') ?>/img/konten/sejarah.png" alt="" class="img-fluid">
@@ -146,40 +132,52 @@
                 <div class="tab-pane" id="tab-2">
                     <div class="row">
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Syarat pendaftaran tenaga pengajar</h3>
-                            <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in
-                                voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                                non proident,
-                                sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
-                            </p>
-                            <p class="font-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et
-                                dolore
-                                magna aliqua.
-                            </p>
+                            <h3>Syarat Asatidz/Pengajar Tahfidz</h3>
                             <ul>
-                                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat.</li>
-                                <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in
-                                    voluptate velit.
+                                <li><i class="ri-check-double-line"></i> Hafidz/Hafidzah Khatam Qur’an Bil Ghoib 30 Juz
                                 </li>
-                                <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores
-                                    dolores quos qui a.
-                                    Ipsum neque dolor voluptate nisi sed.</li>
-                                <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat. Duis
-                                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro
-                                    dolore eu fugiat nulla
-                                    pariatur.</li>
+                                <li><i class="ri-check-double-line"></i> Belum Hafidz/Hafidzah namun sudah hafal minimal 5 Juz, dengan catatan harus terus menerus menambah hafalannya
+                                </li>
+                                <li><i class="ri-check-double-line"></i> Punya kemampuan mengajar
+                                </li>
                             </ul>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="<?= base_url('assets') ?>/img/konten/sejarah.png" alt="" class="img-fluid">
+                            <img src="<?= base_url('assets') ?>/img/konten/misi.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-3">
+                    <div class="row">
+                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                            <h3>Siapa pengurus Rumah Tahfidz</h3>
+                            <ul>
+                                <li><i class="ri-check-double-line"></i> Pemilik tempat
+                                </li>
+                                <li><i class="ri-check-double-line"></i> Takmir masjid / musholla
+                                </li>
+                                <li><i class="ri-check-double-line"></i> Tokoh masyarakat muslim
+                                </li>
+                                <li><i class="ri-check-double-line"></i> Warga ataupun masyarakat yang bersedia mensedekahkan waktu, tenaga dan pikirannya untuk mengelola Rumah Tahfidz
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2 text-center">
+                            <img src="<?= base_url('assets') ?>/img/bg/testi.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab-4">
+                    <div class="row">
+                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                            <h3>Santri</h3>
+                            <ul>
+                                <li><i class="ri-check-double-line"></i> Mampu membaca Al-Qur’an dengan tartil atau sudah Khotmil Qur’an dari lembaga TPA/TPQ.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 order-1 order-lg-2 text-center">
+                            <img src="<?= base_url('assets') ?>/img/konten/visi.png" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
